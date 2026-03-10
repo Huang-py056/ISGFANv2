@@ -6,8 +6,9 @@
     "loss_global_dom",
     "loss_recon",
     "loss_local_dom",
+    "loss_entropy",
     "loss_total"
   ],
   "accuracy_types": [],
-  "iterations": 1300
+  "iterations": 28000
 }

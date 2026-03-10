@@ -78,7 +78,7 @@ class SAM:
 
 def compute_focal_domain_loss(shared_feats_src, shared_feats_tgt,
                               src_labels, tgt_pseudo_labels,
-                              model, subdomain_attention):
+                              model, subdomain_attention, grl_lambda=1.0):
 
     device = shared_feats_src.device
     C = model.num_classes
@@ -87,8 +87,8 @@ def compute_focal_domain_loss(shared_feats_src, shared_feats_tgt,
     class_counts        = torch.zeros(C, device=device)
     local_loss_per_cls  = torch.zeros(C, device=device)
 
-    rev_src = GradientReverseLayer.apply(shared_feats_src, 1.0)
-    rev_tgt = GradientReverseLayer.apply(shared_feats_tgt, 1.0)
+    rev_src = GradientReverseLayer.apply(shared_feats_src, grl_lambda)
+    rev_tgt = GradientReverseLayer.apply(shared_feats_tgt, grl_lambda)
 
     for c in range(C):
         src_mask = (src_labels == c)

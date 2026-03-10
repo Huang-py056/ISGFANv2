@@ -1,10 +1,12 @@
 import copy
+import time
+import logging
+import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from tqdm import tqdm
 from Model.ISAN import Model
-from Data.dataset import get_dataloaders
+from Data.dataset import get_dataloaders, data_manager
 from torch.optim import AdamW
 from utils.training_logger import TrainingLogger
 from losses.grl import GradientReverseLayer
@@ -12,6 +14,9 @@ from losses.FD_Loss_SAM import SAM, compute_focal_domain_loss
 from losses.ortho_loss import orthogonality_loss
 import argparse
 import os
+
+# cd /data2/ranran/chenghaoyue/ISGFAN && /data2/ranran/chenghaoyue/anaconda3/bin/python main.py
+# cd /data2/ranran/chenghaoyue/ISGFAN && nohup /data2/ranran/chenghaoyue/anaconda3/bin/python main.py >> train.log 2>&1 &
 
 # ---------------------------
 # Parameter Settings (using argparse)
@@ -25,6 +30,19 @@ def parse_args():
     parser.add_argument('--lr', type=float, default=1e-4, help='Initial learning rate')
     parser.add_argument('--min-lr', type=float, default=1e-6, help='Minimum learning rate')
     parser.add_argument('--epochs', type=int, default=3500, help='Total training epochs')
+    parser.add_argument('--batch-size', type=int, default=256, help='Batch size for dataloaders')
+    parser.add_argument('--eval-interval', type=int, default=100, help='Run evaluation every N epochs')
+    parser.add_argument('--print-interval', type=int, default=10, help='Print training info every N epochs')
+    # GRL调度
+    parser.add_argument('--disable-grl-schedule', action='store_true', help='Disable GRL schedule and use fixed coefficient')
+    parser.add_argument('--grl-gamma', type=float, default=10.0, help='Gamma value for GRL schedule')
+    parser.add_argument('--grl-max', type=float, default=1.0, help='Maximum GRL coefficient')
+
+    # 新模块：Target Entropy Curriculum (TEC)
+    parser.add_argument('--disable-entropy-curriculum', action='store_true', help='Disable target entropy curriculum regularization')
+    parser.add_argument('--lambda-entropy', type=float, default=0.02, help='Loss weight for target entropy curriculum')
+    parser.add_argument('--entropy-warmup-epochs', type=int, default=30, help='Warmup epochs for entropy curriculum')
+    parser.add_argument('--pseudo-conf-threshold', type=float, default=0.7, help='Base confidence threshold for target pseudo labels')
 
     # Loss weighting parameters
     parser.add_argument('--lambda-ortho-s', type=float, default=0.01, help='Initial source orthogonality loss weight')
@@ -35,8 +53,11 @@ def parse_args():
 
     # Experiment settings
     parser.add_argument('--device', type=str, default='cuda' if torch.cuda.is_available() else 'cpu', help='Computation device')
+    parser.add_argument('--gpu-id', type=int, default=2, help='GPU id to use when device is cuda, e.g. 0')
     parser.add_argument('--output-dir', type=str, default='results', help='Output directory')
     parser.add_argument('--save-prefix', type=str, default='model', help='Model save prefix')
+    parser.add_argument('--log-level', type=str, default='INFO', choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'],
+                        help='Logging level for console/file output')
 
     return parser.parse_args()
 
@@ -44,7 +65,16 @@ def parse_args():
 args = parse_args()
 
 # Set device using parameters
-device = torch.device(args.device)
+if args.device.startswith('cuda') and args.gpu_id is not None and torch.cuda.is_available():
+    device = torch.device(f'cuda:{args.gpu_id}')
+else:
+    device = torch.device(args.device)
+
+logging.basicConfig(
+    level=getattr(logging, args.log_level.upper(), logging.INFO),
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Dynamic loss weighting function
 def dynamic_weight_lambda(loss_val, ref_loss_val, base_lambda, max_ratio=1e1):
@@ -56,6 +86,55 @@ def dynamic_weight_lambda(loss_val, ref_loss_val, base_lambda, max_ratio=1e1):
 subdomain_attention = SAM(args.num_classes, device)
 
 
+def format_duration(seconds):
+    seconds = max(0, int(seconds))
+    hours, remainder = divmod(seconds, 3600)
+    minutes, secs = divmod(remainder, 60)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+
+
+def evaluate_target_domain(model, test_loader, criterion_cls):
+    model_was_training = model.training
+    model.eval()
+
+    total_loss = 0.0
+    total_correct = 0
+    total_samples = 0
+
+    with torch.no_grad():
+        for seg, label in test_loader:
+            seg = seg.to(device)
+            label = label.to(device)
+            logits = model.main_classifier(model.FRFE(seg))
+            loss = criterion_cls(logits, label)
+
+            batch_size = label.size(0)
+            total_loss += loss.item() * batch_size
+            total_correct += (logits.argmax(dim=1) == label).sum().item()
+            total_samples += batch_size
+
+    if model_was_training:
+        model.train()
+
+    return total_loss / max(total_samples, 1), total_correct / max(total_samples, 1)
+
+
+def compute_grl_lambda(global_step, total_steps, gamma=10.0, max_coeff=1.0):
+    progress = min(max(global_step / max(total_steps, 1), 0.0), 1.0)
+    coeff = 2.0 / (1.0 + math.exp(-gamma * progress)) - 1.0
+    return max_coeff * coeff
+
+
+def compute_entropy_curriculum_loss(probs, confidence_mask, epoch, warmup_epochs):
+    if probs.numel() == 0 or (not confidence_mask.any()):
+        return torch.tensor(0.0, device=probs.device)
+
+    entropy = -torch.sum(probs * torch.log(probs + 1e-10), dim=1)
+    confident_entropy = entropy[confidence_mask]
+    curriculum = min(1.0, float(epoch + 1) / max(warmup_epochs, 1))
+    return curriculum * confident_entropy.mean()
+
+
 def main():
     # Ensure output directory exists
     os.makedirs(args.output_dir, exist_ok=True)
@@ -63,7 +142,8 @@ def main():
     # Initialize model
     model = Model(args.feature_dim, args.num_classes)
     model.to(device)
-    train_loader, target_loader = get_dataloaders()
+
+    train_loader, target_loader = get_dataloaders(batch_size=args.batch_size)
 
     # Optimizer
     optimizer = AdamW(
@@ -100,16 +180,38 @@ def main():
     for ld in model.local_discriminators:
         ld.requires_grad_(True)
 
+    test_loader = data_manager.test_loader
+    train_start_time = time.time()
+    use_entropy_curriculum = not args.disable_entropy_curriculum
+
     # Training loop
     for epoch in range(args.epochs):
         model.train()
 
         epoch_weight_sum = torch.zeros(args.num_classes)
+        epoch_loss_sums = {
+            'loss_main': 0.0,
+            'loss_diff_source': 0.0,
+            'loss_label_inv': 0.0,
+            'loss_global_dom': 0.0,
+            'loss_recon': 0.0,
+            'loss_local_dom': 0.0,
+            'loss_entropy': 0.0,
+            'loss_total': 0.0
+        }
+        epoch_start_time = time.time()
         min_steps = min(len(train_loader), len(target_loader))
         src_iter = iter(train_loader)
         tgt_iter = iter(target_loader)
 
-        for _ in tqdm(range(min_steps), desc=f"Epoch {epoch + 1}/{args.epochs}"):
+        for step_idx in range(min_steps):
+            global_step = epoch * min_steps + step_idx
+            total_steps = args.epochs * min_steps
+            if args.disable_grl_schedule:
+                grl_lambda = args.grl_max
+            else:
+                grl_lambda = compute_grl_lambda(global_step, total_steps, args.grl_gamma, args.grl_max)
+
             src_imgs, src_labels = next(src_iter)
             tgt_imgs = next(tgt_iter)
 
@@ -125,8 +227,13 @@ def main():
             out_main_src = model.main_classifier(shared_feats_src)
             loss_main = criterion_cls(out_main_src, src_labels)
 
+            with torch.no_grad():
+                logits_tgt = model.main_classifier(shared_feats_tgt)
+                probs = F.softmax(logits_tgt, dim=1)
+                max_probs, tgt_pseudo_labels = probs.max(dim=1)
+
             # Label-independent adversarial on source domain
-            reversed_feats_src = GradientReverseLayer.apply(source_private_feats, 1.0)
+            reversed_feats_src = GradientReverseLayer.apply(source_private_feats, grl_lambda)
             out_label_inv_src = model.label_invariant_discriminator(reversed_feats_src)
             loss_label_inv = criterion_cls(out_label_inv_src, src_labels)
 
@@ -140,19 +247,15 @@ def main():
             dom_labels_tgt = torch.ones(tgt_imgs.size(0), dtype=torch.long, device=device)
             feats_dom = torch.cat([shared_feats_src, shared_feats_tgt], dim=0)
             labels_dom = torch.cat([dom_labels_src, dom_labels_tgt], dim=0)
-            reversed_feats_dom = GradientReverseLayer.apply(feats_dom, 1.0)
+            reversed_feats_dom = GradientReverseLayer.apply(feats_dom, grl_lambda)
             global_dom_pred = model.domain_discriminator(reversed_feats_dom)
             loss_global_dom = criterion_cls(global_dom_pred, labels_dom)
 
             # Local domain discriminators
             with torch.no_grad():
-                logits = model.main_classifier(shared_feats_tgt)
-                probs = F.softmax(logits, dim=1)
-                max_probs, tgt_pseudo_labels = probs.max(dim=1)
-
                 entropy = -torch.sum(probs * torch.log(probs + 1e-10), dim=1)
 
-                confidence_threshold = max(0.7, 0.9 - epoch * 0.002)
+                confidence_threshold = max(args.pseudo_conf_threshold, 0.9 - epoch * 0.002)
                 entropy_threshold = 0.9
                 confident_mask = (max_probs > confidence_threshold) & (entropy < entropy_threshold)
 
@@ -165,9 +268,19 @@ def main():
             else:
                 weighted_local_loss, weight_vec, _ = compute_focal_domain_loss(
                     shared_feats_src, shared_feats_tgt_filtered,
-                    src_labels, tgt_pseudo_labels, model, subdomain_attention)
+                    src_labels, tgt_pseudo_labels, model, subdomain_attention, grl_lambda=grl_lambda)
 
             epoch_weight_sum += weight_vec.cpu()
+
+            if use_entropy_curriculum:
+                loss_entropy = compute_entropy_curriculum_loss(
+                    probs,
+                    confident_mask,
+                    epoch,
+                    args.entropy_warmup_epochs,
+                )
+            else:
+                loss_entropy = torch.tensor(0.0, device=device)
 
             # Reconstruction
             combined_feats_src = torch.cat([shared_feats_src, source_private_feats], dim=1)
@@ -188,7 +301,8 @@ def main():
                     + lambda_dom_dynamic * loss_global_dom
                     + lambda_label_inv_dynamic * loss_label_inv
                     + lambda_recon_dynamic * loss_recon
-                    + lambda_local_loss_dynamic * weighted_local_loss)
+                    + lambda_local_loss_dynamic * weighted_local_loss
+                    + args.lambda_entropy * loss_entropy)
             loss.backward()
 
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
@@ -202,15 +316,49 @@ def main():
                 'loss_global_dom': loss_global_dom.item(),
                 'loss_recon': loss_recon.item(),
                 'loss_local_dom': weighted_local_loss.item(),
+                'loss_entropy': loss_entropy.item(),
                 'loss_total': loss.item()
             }
             train_logger.log_losses(loss_dict)
+            for key in epoch_loss_sums:
+                epoch_loss_sums[key] += loss_dict[key]
 
             # Memory cleanup
             del src_imgs, src_labels, tgt_imgs, shared_feats_src, source_private_feats
             del shared_feats_tgt, feats_dom, global_dom_pred
             del tgt_pseudo_labels, shared_feats_tgt_filtered
             torch.cuda.empty_cache()
+
+        epoch_losses = {k: v / max(min_steps, 1) for k, v in epoch_loss_sums.items()}
+        epoch_time = time.time() - epoch_start_time
+        avg_epoch_time = (time.time() - train_start_time) / (epoch + 1)
+        eta_seconds = avg_epoch_time * (args.epochs - epoch - 1)
+        current_lr = optimizer.param_groups[0]['lr']
+
+        should_print = (epoch == 0) or ((epoch + 1) % args.print_interval == 0) or ((epoch + 1) == args.epochs)
+        if should_print:
+            logger.info(
+                f"[Epoch {epoch + 1}/{args.epochs}] "
+                f"loss_total={epoch_losses['loss_total']:.6f}, "
+                f"loss_main={epoch_losses['loss_main']:.6f}, "
+                f"loss_diff_source={epoch_losses['loss_diff_source']:.6f}, "
+                f"loss_label_inv={epoch_losses['loss_label_inv']:.6f}, "
+                f"loss_global_dom={epoch_losses['loss_global_dom']:.6f}, "
+                f"loss_recon={epoch_losses['loss_recon']:.6f}, "
+                f"loss_local_dom={epoch_losses['loss_local_dom']:.6f}, "
+                f"loss_entropy={epoch_losses['loss_entropy']:.6f}, "
+                f"grl={grl_lambda:.4f}, "
+                f"lr={current_lr:.8f}, "
+                f"epoch_time={format_duration(epoch_time)}, "
+                f"eta={format_duration(eta_seconds)}"
+            )
+
+        if test_loader is not None and (((epoch + 1) == 1) or ((epoch + 1) % args.eval_interval == 0)):
+            eval_loss, eval_acc = evaluate_target_domain(model, test_loader, criterion_cls)
+            logger.info(
+                f"[Eval @ Epoch {epoch + 1}/{args.epochs}] "
+                f"test_loss={eval_loss:.6f}, test_acc={eval_acc:.4f}"
+            )
 
         # Update learning rate
         lr_scheduler.step()
@@ -225,8 +373,8 @@ def main():
             swa_n += 10
 
         # Save best weights
-        if loss_main.item() < best_train_loss:
-            best_train_loss = loss_main.item()
+        if epoch_losses['loss_main'] < best_train_loss:
+            best_train_loss = epoch_losses['loss_main']
             best_state_dict = copy.deepcopy(model.state_dict())
 
     # Save final model (using output directory and save prefix)
@@ -238,8 +386,8 @@ def main():
         torch.save(swa_state_dict, swa_model_path)
 
     train_logger.save_to_file()
-    print(f"Training complete! Best training loss: {best_train_loss:.4f}")
-    print(f"Model saved to: {best_model_path}")
+    logger.info(f"Training complete! Best training loss: {best_train_loss:.4f}")
+    logger.info(f"Model saved to: {best_model_path}")
 
 
 if __name__ == "__main__":
