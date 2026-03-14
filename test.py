@@ -1,4 +1,5 @@
 import os, itertools
+import argparse
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -33,7 +34,15 @@ VISUALIZATIONS_DIR = "visualizations"  # Directory for all visualization outputs
 
 # ------------------------------------------------------------
 
-def test_target_domain(model_path, batch_size=32, num_workers=4):
+def test_target_domain(
+    model_path,
+    batch_size=32,
+    num_workers=4,
+    output_tag="",
+    attention_mode="none",
+    attn_heads=4,
+    attn_dropout=0.1,
+):
     """Test model performance on target domain and generate diagnostic plots"""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -41,7 +50,13 @@ def test_target_domain(model_path, batch_size=32, num_workers=4):
     os.makedirs(VISUALIZATIONS_DIR, exist_ok=True)
 
     # Initialize model
-    model = Model(feature_dim=320, num_classes=len(CLASS_NAMES)).to(device)
+    model = Model(
+        feature_dim=320,
+        num_classes=len(CLASS_NAMES),
+        attention_mode=attention_mode,
+        attn_heads=attn_heads,
+        attn_dropout=attn_dropout,
+    ).to(device)
     model.load_state_dict(torch.load(model_path, map_location=device))
     model.eval()
 
@@ -71,7 +86,8 @@ def test_target_domain(model_path, batch_size=32, num_workers=4):
                                 target_names=CLASS_NAMES, zero_division=0))
 
     # Generate confusion matrix with path in visualizations directory
-    conf_matrix_path = os.path.join(VISUALIZATIONS_DIR, "test_confusion_matrix.png")
+    conf_name = f"test_confusion_matrix_{output_tag}.png" if output_tag else "test_confusion_matrix.png"
+    conf_matrix_path = os.path.join(VISUALIZATIONS_DIR, conf_name)
     plt.figure(figsize=(10, 8))
     sns.heatmap(confusion_matrix(all_labels, all_preds),
                 annot=True, fmt="d", cmap="Blues",
@@ -88,11 +104,11 @@ def test_target_domain(model_path, batch_size=32, num_workers=4):
     print(f"Confusion matrix saved to {conf_matrix_path}")
 
     # Generate t-SNE plot
-    plot_tsne(model, device, test_loader, max_samples=2100)
+    plot_tsne(model, device, test_loader, max_samples=2100, output_tag=output_tag)
 
 
 # --------------------------------------------------------------------
-def plot_tsne(model, device, test_loader, max_samples=2100):
+def plot_tsne(model, device, test_loader, max_samples=2100, output_tag=""):
     """Generate t-SNE visualization of feature distribution"""
     # Prepare source dataset
     source_ds = SourceDataset(SOURCE_DIR)
@@ -139,7 +155,8 @@ def plot_tsne(model, device, test_loader, max_samples=2100):
     color_set = sns.color_palette(ukiyoe_autumn)
 
     # Plot t-SNE results with path in visualizations directory
-    tsne_path = os.path.join(VISUALIZATIONS_DIR, "tsne_source_target.png")
+    tsne_name = f"tsne_source_target_{output_tag}.png" if output_tag else "tsne_source_target.png"
+    tsne_path = os.path.join(VISUALIZATIONS_DIR, tsne_name)
     plt.figure(figsize=(8, 6))
     for cid in range(len(CLASS_NAMES)):
         # Source domain points (circles)
@@ -162,7 +179,8 @@ def plot_tsne(model, device, test_loader, max_samples=2100):
     print(f"t-SNE plot saved to {tsne_path}")
 
     # Generate separate legend in visualizations directory
-    legend_path = os.path.join(VISUALIZATIONS_DIR, "tsne_legend.png")
+    legend_name = f"tsne_legend_{output_tag}.png" if output_tag else "tsne_legend.png"
+    legend_path = os.path.join(VISUALIZATIONS_DIR, legend_name)
     save_tsne_legend(color_set, DISPLAY_NAMES, legend_path)
 
 
@@ -196,8 +214,22 @@ def save_tsne_legend(color_set, display_names, save_path):
 # --------------------------------------------------------------------
 
 if __name__ == "__main__":
-    # Update model path to match new training output directory
+    parser = argparse.ArgumentParser(description="Evaluate checkpoint and generate confusion matrix + t-SNE")
+    parser.add_argument("--model-path", type=str, default=os.path.join("results", "model_best.pth"))
+    parser.add_argument("--batch-size", type=int, default=32)
+    parser.add_argument("--num-workers", type=int, default=4)
+    parser.add_argument("--output-tag", type=str, default="")
+    parser.add_argument("--attention-mode", type=str, default="none", choices=["none", "attn1", "attn2", "attn2_mha"])
+    parser.add_argument("--attn-heads", type=int, default=4)
+    parser.add_argument("--attn-dropout", type=float, default=0.1)
+    args = parser.parse_args()
+
     test_target_domain(
-        model_path=os.path.join("results", "model_best.pth"),
-        batch_size=32
+        model_path=args.model_path,
+        batch_size=args.batch_size,
+        num_workers=args.num_workers,
+        output_tag=args.output_tag,
+        attention_mode=args.attention_mode,
+        attn_heads=args.attn_heads,
+        attn_dropout=args.attn_dropout,
     )

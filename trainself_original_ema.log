@@ -1,0 +1,100 @@
+nohup: ignoring input
+2026-03-12 14:49:34,841 - INFO - Private dataset loaded from: self_data/75_Sta_60_test_dso
+2026-03-12 14:49:34,841 - INFO - use_dso=False, signal_length=2048
+2026-03-12 14:49:34,841 - INFO - num_classes=8, class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-03-12 14:49:34,841 - INFO - train_samples=25975, test_samples=6495
+2026-03-12 14:49:58,333 - INFO - [Eval @ Epoch 1/300] test_loss=1.737258, test_acc=0.2479
+2026-03-12 14:49:58,333 - INFO - [Epoch 1/300] train_loss=0.759289, loss_label_inv=0.813428, loss_entropy=0.000000, loss_total=0.767423, grl=1.0000, lr=0.00010000, epoch_time=00:00:22, eta=01:53:11, test_loss=1.737258, test_acc=0.2479
+2026-03-12 14:51:17,751 - INFO - [Eval @ Epoch 5/300] test_loss=0.428298, test_acc=0.7909
+2026-03-12 14:52:56,909 - INFO - [Eval @ Epoch 10/300] test_loss=0.298660, test_acc=0.8548
+2026-03-12 14:52:56,910 - INFO - [Epoch 10/300] train_loss=0.333560, loss_label_inv=0.333144, loss_entropy=0.000000, loss_total=0.336891, grl=1.0000, lr=0.00009973, epoch_time=00:00:21, eta=01:37:17, test_loss=0.298660, test_acc=0.8548
+2026-03-12 14:54:35,338 - INFO - [Eval @ Epoch 15/300] test_loss=0.241998, test_acc=0.8821
+2026-03-12 14:56:13,905 - INFO - [Eval @ Epoch 20/300] test_loss=0.222716, test_acc=0.8938
+2026-03-12 14:56:13,905 - INFO - [Epoch 20/300] train_loss=0.312639, loss_label_inv=0.313107, loss_entropy=0.000000, loss_total=0.315770, grl=1.0000, lr=0.00009892, epoch_time=00:00:21, eta=01:32:56, test_loss=0.222716, test_acc=0.8938
+2026-03-12 14:57:52,075 - INFO - [Eval @ Epoch 25/300] test_loss=0.208218, test_acc=0.9050
+2026-03-12 14:59:30,624 - INFO - [Eval @ Epoch 30/300] test_loss=0.197729, test_acc=0.9098
+2026-03-12 14:59:30,624 - INFO - [Epoch 30/300] train_loss=0.282421, loss_label_inv=0.281267, loss_entropy=0.000000, loss_total=0.285234, grl=1.0000, lr=0.00009758, epoch_time=00:00:21, eta=01:29:15, test_loss=0.197729, test_acc=0.9098
+2026-03-12 15:01:09,576 - INFO - [Eval @ Epoch 35/300] test_loss=0.189945, test_acc=0.9145
+2026-03-12 15:02:49,970 - INFO - [Eval @ Epoch 40/300] test_loss=0.183409, test_acc=0.9201
+2026-03-12 15:02:49,970 - INFO - [Epoch 40/300] train_loss=0.262353, loss_label_inv=0.261864, loss_entropy=0.000000, loss_total=0.264972, grl=1.0000, lr=0.00009572, epoch_time=00:00:21, eta=01:26:03, test_loss=0.183409, test_acc=0.9201
+2026-03-12 15:04:29,999 - INFO - [Eval @ Epoch 45/300] test_loss=0.175447, test_acc=0.9259
+2026-03-12 15:06:09,897 - INFO - [Eval @ Epoch 50/300] test_loss=0.168192, test_acc=0.9295
+2026-03-12 15:06:09,898 - INFO - [Epoch 50/300] train_loss=0.224020, loss_label_inv=0.224088, loss_entropy=0.000000, loss_total=0.226260, grl=1.0000, lr=0.00009337, epoch_time=00:00:21, eta=01:22:51, test_loss=0.168192, test_acc=0.9295
+2026-03-12 15:07:50,147 - INFO - [Eval @ Epoch 55/300] test_loss=0.157551, test_acc=0.9350
+2026-03-12 15:09:30,711 - INFO - [Eval @ Epoch 60/300] test_loss=0.150303, test_acc=0.9407
+2026-03-12 15:09:30,711 - INFO - [Epoch 60/300] train_loss=0.215446, loss_label_inv=0.215310, loss_entropy=0.000000, loss_total=0.217599, grl=1.0000, lr=0.00009055, epoch_time=00:00:21, eta=01:19:40, test_loss=0.150303, test_acc=0.9407
+2026-03-12 15:11:10,676 - INFO - [Eval @ Epoch 65/300] test_loss=0.144435, test_acc=0.9423
+2026-03-12 15:12:51,045 - INFO - [Eval @ Epoch 70/300] test_loss=0.139163, test_acc=0.9484
+2026-03-12 15:12:51,046 - INFO - [Epoch 70/300] train_loss=0.170649, loss_label_inv=0.170427, loss_entropy=0.000000, loss_total=0.172354, grl=1.0000, lr=0.00008729, epoch_time=00:00:21, eta=01:16:24, test_loss=0.139163, test_acc=0.9484
+2026-03-12 15:14:31,369 - INFO - [Eval @ Epoch 75/300] test_loss=0.140037, test_acc=0.9487
+2026-03-12 15:16:11,191 - INFO - [Eval @ Epoch 80/300] test_loss=0.131364, test_acc=0.9510
+2026-03-12 15:16:11,191 - INFO - [Epoch 80/300] train_loss=0.183490, loss_label_inv=0.183390, loss_entropy=0.000000, loss_total=0.185324, grl=1.0000, lr=0.00008362, epoch_time=00:00:21, eta=01:13:07, test_loss=0.131364, test_acc=0.9510
+2026-03-12 15:17:50,859 - INFO - [Eval @ Epoch 85/300] test_loss=0.139433, test_acc=0.9472
+2026-03-12 15:19:29,910 - INFO - [Eval @ Epoch 90/300] test_loss=0.077870, test_acc=0.9712
+2026-03-12 15:19:29,910 - INFO - [Epoch 90/300] train_loss=0.145127, loss_label_inv=0.145322, loss_entropy=0.000000, loss_total=0.146581, grl=1.0000, lr=0.00007960, epoch_time=00:00:21, eta=01:09:46, test_loss=0.077870, test_acc=0.9712
+2026-03-12 15:21:08,587 - INFO - [Eval @ Epoch 95/300] test_loss=0.061431, test_acc=0.9784
+2026-03-12 15:22:46,750 - INFO - [Eval @ Epoch 100/300] test_loss=0.051604, test_acc=0.9831
+2026-03-12 15:22:46,750 - INFO - [Epoch 100/300] train_loss=0.139155, loss_label_inv=0.139878, loss_entropy=0.000000, loss_total=0.140554, grl=1.0000, lr=0.00007525, epoch_time=00:00:21, eta=01:06:22, test_loss=0.051604, test_acc=0.9831
+2026-03-12 15:24:26,087 - INFO - [Eval @ Epoch 105/300] test_loss=0.053982, test_acc=0.9824
+2026-03-12 15:26:05,860 - INFO - [Eval @ Epoch 110/300] test_loss=0.039167, test_acc=0.9883
+2026-03-12 15:26:05,860 - INFO - [Epoch 110/300] train_loss=0.131402, loss_label_inv=0.131459, loss_entropy=0.000000, loss_total=0.132717, grl=1.0000, lr=0.00007063, epoch_time=00:00:21, eta=01:03:03, test_loss=0.039167, test_acc=0.9883
+2026-03-12 15:27:45,467 - INFO - [Eval @ Epoch 115/300] test_loss=0.038665, test_acc=0.9880
+2026-03-12 15:29:26,281 - INFO - [Eval @ Epoch 120/300] test_loss=0.040365, test_acc=0.9880
+2026-03-12 15:29:26,281 - INFO - [Epoch 120/300] train_loss=0.132334, loss_label_inv=0.131589, loss_entropy=0.000000, loss_total=0.133650, grl=1.0000, lr=0.00006580, epoch_time=00:00:21, eta=00:59:45, test_loss=0.040365, test_acc=0.9880
+2026-03-12 15:31:05,781 - INFO - [Eval @ Epoch 125/300] test_loss=0.034937, test_acc=0.9901
+2026-03-12 15:32:45,019 - INFO - [Eval @ Epoch 130/300] test_loss=0.036282, test_acc=0.9895
+2026-03-12 15:32:45,020 - INFO - [Epoch 130/300] train_loss=0.143905, loss_label_inv=0.143804, loss_entropy=0.000000, loss_total=0.145343, grl=1.0000, lr=0.00006079, epoch_time=00:00:21, eta=00:56:26, test_loss=0.036282, test_acc=0.9895
+2026-03-12 15:34:23,746 - INFO - [Eval @ Epoch 135/300] test_loss=0.035724, test_acc=0.9900
+2026-03-12 15:36:01,611 - INFO - [Eval @ Epoch 140/300] test_loss=0.035233, test_acc=0.9908
+2026-03-12 15:36:01,611 - INFO - [Epoch 140/300] train_loss=0.081953, loss_label_inv=0.082468, loss_entropy=0.000000, loss_total=0.082778, grl=1.0000, lr=0.00005567, epoch_time=00:00:21, eta=00:53:03, test_loss=0.035233, test_acc=0.9908
+2026-03-12 15:37:17,065 - INFO - [Eval @ Epoch 145/300] test_loss=0.037294, test_acc=0.9908
+2026-03-12 15:38:39,272 - INFO - [Eval @ Epoch 150/300] test_loss=0.041266, test_acc=0.9909
+2026-03-12 15:38:39,272 - INFO - [Epoch 150/300] train_loss=0.073346, loss_label_inv=0.072551, loss_entropy=0.000000, loss_total=0.074072, grl=1.0000, lr=0.00005050, epoch_time=00:00:21, eta=00:49:03, test_loss=0.041266, test_acc=0.9909
+2026-03-12 15:40:17,475 - INFO - [Eval @ Epoch 155/300] test_loss=0.037488, test_acc=0.9911
+2026-03-12 15:41:55,775 - INFO - [Eval @ Epoch 160/300] test_loss=0.038130, test_acc=0.9914
+2026-03-12 15:41:55,775 - INFO - [Epoch 160/300] train_loss=0.061770, loss_label_inv=0.061761, loss_entropy=0.000000, loss_total=0.062388, grl=1.0000, lr=0.00004533, epoch_time=00:00:21, eta=00:45:47, test_loss=0.038130, test_acc=0.9914
+2026-03-12 15:43:33,418 - INFO - [Eval @ Epoch 165/300] test_loss=0.039109, test_acc=0.9918
+2026-03-12 15:45:11,745 - INFO - [Eval @ Epoch 170/300] test_loss=0.048279, test_acc=0.9918
+2026-03-12 15:45:11,746 - INFO - [Epoch 170/300] train_loss=0.065854, loss_label_inv=0.064563, loss_entropy=0.000000, loss_total=0.066500, grl=1.0000, lr=0.00004021, epoch_time=00:00:20, eta=00:42:31, test_loss=0.048279, test_acc=0.9918
+2026-03-12 15:46:49,754 - INFO - [Eval @ Epoch 175/300] test_loss=0.054776, test_acc=0.9923
+2026-03-12 15:48:27,397 - INFO - [Eval @ Epoch 180/300] test_loss=0.056335, test_acc=0.9918
+2026-03-12 15:48:27,397 - INFO - [Epoch 180/300] train_loss=0.037434, loss_label_inv=0.036346, loss_entropy=0.000000, loss_total=0.037797, grl=1.0000, lr=0.00003520, epoch_time=00:00:21, eta=00:39:14, test_loss=0.056335, test_acc=0.9918
+2026-03-12 15:50:04,252 - INFO - [Eval @ Epoch 185/300] test_loss=0.052497, test_acc=0.9918
+2026-03-12 15:51:41,799 - INFO - [Eval @ Epoch 190/300] test_loss=0.050551, test_acc=0.9918
+2026-03-12 15:51:41,799 - INFO - [Epoch 190/300] train_loss=0.034791, loss_label_inv=0.034049, loss_entropy=0.000000, loss_total=0.035132, grl=1.0000, lr=0.00003037, epoch_time=00:00:20, eta=00:35:57, test_loss=0.050551, test_acc=0.9918
+2026-03-12 15:53:18,842 - INFO - [Eval @ Epoch 195/300] test_loss=0.052520, test_acc=0.9926
+2026-03-12 15:54:56,215 - INFO - [Eval @ Epoch 200/300] test_loss=0.058708, test_acc=0.9928
+2026-03-12 15:54:56,215 - INFO - [Epoch 200/300] train_loss=0.041181, loss_label_inv=0.040167, loss_entropy=0.000000, loss_total=0.041583, grl=1.0000, lr=0.00002575, epoch_time=00:00:21, eta=00:32:40, test_loss=0.058708, test_acc=0.9928
+2026-03-12 15:56:34,293 - INFO - [Eval @ Epoch 205/300] test_loss=0.060146, test_acc=0.9926
+2026-03-12 15:58:11,665 - INFO - [Eval @ Epoch 210/300] test_loss=0.064502, test_acc=0.9923
+2026-03-12 15:58:11,665 - INFO - [Epoch 210/300] train_loss=0.023953, loss_label_inv=0.023954, loss_entropy=0.000000, loss_total=0.024192, grl=1.0000, lr=0.00002140, epoch_time=00:00:20, eta=00:29:24, test_loss=0.064502, test_acc=0.9923
+2026-03-12 15:59:49,437 - INFO - [Eval @ Epoch 215/300] test_loss=0.067977, test_acc=0.9926
+2026-03-12 16:01:27,216 - INFO - [Eval @ Epoch 220/300] test_loss=0.072199, test_acc=0.9921
+2026-03-12 16:01:27,216 - INFO - [Epoch 220/300] train_loss=0.017884, loss_label_inv=0.017597, loss_entropy=0.000000, loss_total=0.018060, grl=1.0000, lr=0.00001738, epoch_time=00:00:20, eta=00:26:07, test_loss=0.072199, test_acc=0.9921
+2026-03-12 16:02:58,637 - INFO - [Eval @ Epoch 225/300] test_loss=0.071385, test_acc=0.9923
+2026-03-12 16:04:37,567 - INFO - [Eval @ Epoch 230/300] test_loss=0.070304, test_acc=0.9923
+2026-03-12 16:04:37,567 - INFO - [Epoch 230/300] train_loss=0.018922, loss_label_inv=0.018679, loss_entropy=0.000000, loss_total=0.019109, grl=1.0000, lr=0.00001371, epoch_time=00:00:21, eta=00:22:50, test_loss=0.070304, test_acc=0.9923
+2026-03-12 16:06:16,214 - INFO - [Eval @ Epoch 235/300] test_loss=0.073609, test_acc=0.9925
+2026-03-12 16:07:55,549 - INFO - [Eval @ Epoch 240/300] test_loss=0.073250, test_acc=0.9923
+2026-03-12 16:07:55,549 - INFO - [Epoch 240/300] train_loss=0.017526, loss_label_inv=0.017170, loss_entropy=0.000000, loss_total=0.017698, grl=1.0000, lr=0.00001045, epoch_time=00:00:21, eta=00:19:34, test_loss=0.073250, test_acc=0.9923
+2026-03-12 16:09:33,789 - INFO - [Eval @ Epoch 245/300] test_loss=0.074746, test_acc=0.9923
+2026-03-12 16:11:11,015 - INFO - [Eval @ Epoch 250/300] test_loss=0.078658, test_acc=0.9920
+2026-03-12 16:11:11,015 - INFO - [Epoch 250/300] train_loss=0.009861, loss_label_inv=0.009814, loss_entropy=0.000000, loss_total=0.009959, grl=1.0000, lr=0.00000763, epoch_time=00:00:21, eta=00:16:19, test_loss=0.078658, test_acc=0.9920
+2026-03-12 16:12:48,980 - INFO - [Eval @ Epoch 255/300] test_loss=0.079481, test_acc=0.9920
+2026-03-12 16:14:26,186 - INFO - [Eval @ Epoch 260/300] test_loss=0.082049, test_acc=0.9918
+2026-03-12 16:14:26,186 - INFO - [Epoch 260/300] train_loss=0.009042, loss_label_inv=0.009002, loss_entropy=0.000000, loss_total=0.009132, grl=1.0000, lr=0.00000528, epoch_time=00:00:21, eta=00:13:03, test_loss=0.082049, test_acc=0.9918
+2026-03-12 16:16:01,726 - INFO - [Eval @ Epoch 265/300] test_loss=0.079638, test_acc=0.9921
+2026-03-12 16:17:34,075 - INFO - [Eval @ Epoch 270/300] test_loss=0.082205, test_acc=0.9917
+2026-03-12 16:17:34,076 - INFO - [Epoch 270/300] train_loss=0.007985, loss_label_inv=0.008029, loss_entropy=0.000000, loss_total=0.008065, grl=1.0000, lr=0.00000342, epoch_time=00:00:17, eta=00:09:46, test_loss=0.082205, test_acc=0.9917
+2026-03-12 16:19:09,268 - INFO - [Eval @ Epoch 275/300] test_loss=0.080619, test_acc=0.9923
+2026-03-12 16:20:45,524 - INFO - [Eval @ Epoch 280/300] test_loss=0.083620, test_acc=0.9921
+2026-03-12 16:20:45,524 - INFO - [Epoch 280/300] train_loss=0.007725, loss_label_inv=0.007659, loss_entropy=0.000000, loss_total=0.007802, grl=1.0000, lr=0.00000208, epoch_time=00:00:20, eta=00:06:30, test_loss=0.083620, test_acc=0.9921
+2026-03-12 16:22:09,293 - INFO - [Eval @ Epoch 285/300] test_loss=0.084586, test_acc=0.9914
+2026-03-12 16:23:42,060 - INFO - [Eval @ Epoch 290/300] test_loss=0.084361, test_acc=0.9920
+2026-03-12 16:23:42,061 - INFO - [Epoch 290/300] train_loss=0.006828, loss_label_inv=0.006859, loss_entropy=0.000000, loss_total=0.006896, grl=1.0000, lr=0.00000127, epoch_time=00:00:20, eta=00:03:14, test_loss=0.084361, test_acc=0.9920
+2026-03-12 16:25:17,554 - INFO - [Eval @ Epoch 295/300] test_loss=0.085022, test_acc=0.9917
+2026-03-12 16:26:54,072 - INFO - [Eval @ Epoch 300/300] test_loss=0.084949, test_acc=0.9920
+2026-03-12 16:26:54,072 - INFO - [Epoch 300/300] train_loss=0.005845, loss_label_inv=0.005769, loss_entropy=0.000000, loss_total=0.005902, grl=1.0000, lr=0.00000100, epoch_time=00:00:20, eta=00:00:00, test_loss=0.084949, test_acc=0.9920
+2026-03-12 16:26:54,225 - INFO - Training complete. Best test acc: 0.9928
+2026-03-12 16:26:54,225 - INFO - Best model: results_self_original_ema/model_self_original_ema_best.pth
+2026-03-12 16:26:54,225 - INFO - Last model: results_self_original_ema/model_self_original_ema_last.pth

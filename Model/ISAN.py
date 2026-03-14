@@ -7,12 +7,12 @@ import torch.nn.functional as F
 from .featureextractor import FIFE, FRFE
 
 class Model(nn.Module):
-    def __init__(self, feature_dim, num_classes):
+    def __init__(self, feature_dim, num_classes, attention_mode='none', attn_heads=4, attn_dropout=0.1):
         super(Model, self).__init__()
         self.num_classes = num_classes
 
-        self.FRFE = FRFE()
-        self.FIFE = FIFE()
+        self.FRFE = FRFE(attention_mode=attention_mode, attn_heads=attn_heads, attn_dropout=attn_dropout)
+        self.FIFE = FIFE(attention_mode=attention_mode, attn_heads=attn_heads, attn_dropout=attn_dropout)
 
         self.main_classifier = GenericClassifier(feature_dim, num_classes)
         self.domain_discriminator = GenericClassifier(feature_dim,  2)

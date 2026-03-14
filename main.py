@@ -33,6 +33,10 @@ def parse_args():
     parser.add_argument('--batch-size', type=int, default=256, help='Batch size for dataloaders')
     parser.add_argument('--eval-interval', type=int, default=100, help='Run evaluation every N epochs')
     parser.add_argument('--print-interval', type=int, default=10, help='Print training info every N epochs')
+    parser.add_argument('--attention-mode', type=str, default='none', choices=['none', 'attn1', 'attn2'],
+                        help='Optional lightweight attention mode for feature blocks')
+    parser.add_argument('--attn-heads', type=int, default=4, help='Attention heads used by attn2 mode')
+    parser.add_argument('--attn-dropout', type=float, default=0.1, help='Attention dropout used by attn2 mode')
     # GRL调度
     parser.add_argument('--disable-grl-schedule', action='store_true', help='Disable GRL schedule and use fixed coefficient')
     parser.add_argument('--grl-gamma', type=float, default=10.0, help='Gamma value for GRL schedule')
@@ -138,9 +142,17 @@ def compute_entropy_curriculum_loss(probs, confidence_mask, epoch, warmup_epochs
 def main():
     # Ensure output directory exists
     os.makedirs(args.output_dir, exist_ok=True)
+    best_model_path = os.path.join(args.output_dir, f"{args.save_prefix}_best.pth")
+    swa_model_path = os.path.join(args.output_dir, f"{args.save_prefix}_swa.pth")
 
     # Initialize model
-    model = Model(args.feature_dim, args.num_classes)
+    model = Model(
+        args.feature_dim,
+        args.num_classes,
+        attention_mode=args.attention_mode,
+        attn_heads=args.attn_heads,
+        attn_dropout=args.attn_dropout,
+    )
     model.to(device)
 
     train_loader, target_loader = get_dataloaders(batch_size=args.batch_size)
@@ -376,13 +388,13 @@ def main():
         if epoch_losses['loss_main'] < best_train_loss:
             best_train_loss = epoch_losses['loss_main']
             best_state_dict = copy.deepcopy(model.state_dict())
+            torch.save(best_state_dict, best_model_path)
 
     # Save final model (using output directory and save prefix)
-    best_model_path = os.path.join(args.output_dir, f"{args.save_prefix}_best.pth")
-    torch.save(best_state_dict, best_model_path)
+    if best_state_dict is not None:
+        torch.save(best_state_dict, best_model_path)
 
     if swa_state_dict is not None:
-        swa_model_path = os.path.join(args.output_dir, f"{args.save_prefix}_swa.pth")
         torch.save(swa_state_dict, swa_model_path)
 
     train_logger.save_to_file()

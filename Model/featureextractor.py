@@ -4,12 +4,129 @@ import torch.nn as nn
 from timm.layers import trunc_normal_, DropPath
 import torch.nn.functional as F
 
+
+class GlobalLocalFusionAttention1D(nn.Module):
+    def __init__(self, dim, heads=4, attn_dropout=0.1):
+        super().__init__()
+        self.norm = nn.LayerNorm(dim)
+        self.global_pool = nn.AdaptiveAvgPool1d(1)
+        self.global_mlp = nn.Sequential(
+            nn.Linear(dim, dim * 3),
+            nn.GELU(),
+            nn.Dropout(attn_dropout),
+            nn.Linear(dim * 3, dim),
+            nn.Sigmoid(),
+        )
+        self.local_dwconv = nn.Conv1d(dim, dim, kernel_size=5, padding=2, groups=dim)
+        self.local_pwconv = nn.Conv1d(dim, dim, kernel_size=1)
+        self.local_bn = nn.BatchNorm1d(dim)
+        self.local_gate = nn.Conv1d(dim, dim, kernel_size=1)
+        self.out_proj = nn.Linear(dim, dim)
+        self.layer_scale = nn.Parameter(torch.ones(dim) * 1e-3)
+        self.dropout = nn.Dropout(attn_dropout)
+
+    def forward(self, x):
+        h = self.norm(x)
+        x_t = h.transpose(1, 2)
+        global_token = self.global_pool(x_t).squeeze(-1)
+        global_gate = self.global_mlp(global_token).unsqueeze(1)
+
+        local_feat = self.local_dwconv(x_t)
+        local_feat = self.local_pwconv(local_feat)
+        local_feat = self.local_bn(local_feat)
+        local_feat = F.gelu(local_feat)
+        local_gate = torch.sigmoid(self.local_gate(local_feat)).transpose(1, 2)
+
+        fused = h * global_gate * local_gate
+        fused = self.dropout(self.out_proj(fused)) * self.layer_scale.unsqueeze(0).unsqueeze(0)
+        return x + fused
+
+
+class TransformerFFNAttention1D(nn.Module):
+    def __init__(self, dim, heads=4, attn_dropout=0.1, mlp_ratio=4, pooled_length=16):
+        super().__init__()
+        hidden_dim = dim * mlp_ratio
+        self.norm1 = nn.LayerNorm(dim)
+        self.dwconv3 = nn.Conv1d(dim, dim, kernel_size=3, padding=1, groups=dim)
+        self.dwconv5 = nn.Conv1d(dim, dim, kernel_size=5, padding=2, groups=dim)
+        self.dwconv7 = nn.Conv1d(dim, dim, kernel_size=7, padding=3, groups=dim)
+        self.mix_proj = nn.Conv1d(dim, dim, kernel_size=1)
+        self.channel_gate = nn.Sequential(
+            nn.Linear(dim, max(dim // 4, 8)),
+            nn.GELU(),
+            nn.Linear(max(dim // 4, 8), dim),
+            nn.Sigmoid(),
+        )
+        self.out_proj = nn.Linear(dim, dim)
+        self.dropout1 = nn.Dropout(attn_dropout)
+        self.layer_scale1 = nn.Parameter(torch.ones(dim) * 1e-4)
+        self.norm2 = nn.LayerNorm(dim)
+        self.ffn = nn.Sequential(
+            nn.Linear(dim, hidden_dim),
+            nn.GELU(),
+            nn.Dropout(attn_dropout),
+            nn.Linear(hidden_dim, dim),
+            nn.Dropout(attn_dropout),
+        )
+        self.layer_scale2 = nn.Parameter(torch.ones(dim) * 1e-4)
+
+    def forward(self, x):
+        h = self.norm1(x).transpose(1, 2)
+        mixed = (self.dwconv3(h) + self.dwconv5(h) + self.dwconv7(h)) / 3.0
+        mixed = self.mix_proj(F.gelu(mixed))
+        channel_token = mixed.mean(dim=-1)
+        channel_gate = self.channel_gate(channel_token).unsqueeze(-1)
+        attn_like = (mixed * channel_gate).transpose(1, 2)
+        x = x + self.dropout1(self.out_proj(attn_like)) * self.layer_scale1.unsqueeze(0).unsqueeze(0)
+        x = x + self.ffn(self.norm2(x)) * self.layer_scale2.unsqueeze(0).unsqueeze(0)
+        return x
+
+
+class TransformerFFNAttention1DLegacy(nn.Module):
+    def __init__(self, dim, heads=4, attn_dropout=0.1, mlp_ratio=4):
+        super().__init__()
+        hidden_dim = dim * mlp_ratio
+        self.norm1 = nn.LayerNorm(dim)
+        self.attn = nn.MultiheadAttention(
+            embed_dim=dim,
+            num_heads=heads,
+            dropout=attn_dropout,
+            batch_first=True,
+        )
+        self.norm2 = nn.LayerNorm(dim)
+        self.ffn = nn.Sequential(
+            nn.Linear(dim, hidden_dim),
+            nn.GELU(),
+            nn.Dropout(attn_dropout),
+            nn.Linear(hidden_dim, dim),
+            nn.Dropout(attn_dropout),
+        )
+
+    def forward(self, x):
+        h = self.norm1(x)
+        attn_out, _ = self.attn(h, h, h, need_weights=False)
+        x = x + attn_out
+        x = x + self.ffn(self.norm2(x))
+        return x
+
+
+def build_attention_block(mode, dim, heads=4, attn_dropout=0.1):
+    if mode == 'attn1':
+        return GlobalLocalFusionAttention1D(dim, heads=heads, attn_dropout=attn_dropout)
+    if mode == 'attn2':
+        return TransformerFFNAttention1D(dim, heads=heads, attn_dropout=attn_dropout)
+    if mode == 'attn2_mha':
+        return TransformerFFNAttention1DLegacy(dim, heads=heads, attn_dropout=attn_dropout)
+    return None
+
 class FIFEBlock(nn.Module):
 
-    def __init__(self, dim, drop_path=0. , dropout_prob=0.1):
+    def __init__(self, dim, drop_path=0. , dropout_prob=0.1, attention_mode='none', attn_heads=4, attn_dropout=0.1):
         super().__init__()
         self.dwconv = nn.Conv1d(dim, dim, kernel_size=5, padding=2, groups=dim)
         self.norm = LayerNorm(dim, eps=1e-6)
+        self.attention_mode = attention_mode
+        self.attn_block = build_attention_block(attention_mode, dim, heads=attn_heads, attn_dropout=attn_dropout)
         self.pwconv1 = nn.Linear(dim, 4 * dim)
         self.act = nn.GELU()
         self.grn = GRN(4 * dim)
@@ -22,6 +139,8 @@ class FIFEBlock(nn.Module):
         x = self.dwconv(x)
         x = x.permute(0, 2, 1)  # (N, C, L) -> (N, L, C)
         x = self.norm(x)
+        if self.attn_block is not None:
+            x = self.attn_block(x)
         x = self.pwconv1(x)
         x = self.act(x)
         x = self.grn(x)
@@ -33,10 +152,12 @@ class FIFEBlock(nn.Module):
 
 class FRFEBlock(nn.Module):
 
-    def __init__(self, dim, drop_path=0., dropout_prob=0.2):
+    def __init__(self, dim, drop_path=0., dropout_prob=0.2, attention_mode='none', attn_heads=4, attn_dropout=0.1):
         super().__init__()
         self.dwconv = nn.Conv1d(dim, dim, kernel_size=7, padding=3, groups=dim)
         self.norm = LayerNorm(dim, eps=1e-6)
+        self.attention_mode = attention_mode
+        self.attn_block = build_attention_block(attention_mode, dim, heads=attn_heads, attn_dropout=attn_dropout)
         self.pwconv1 = nn.Linear(dim, 4 * dim)
         self.act = nn.GELU()
         self.grn = GRN(4 * dim)
@@ -49,6 +170,8 @@ class FRFEBlock(nn.Module):
         x = self.dwconv(x)
         x = x.permute(0, 2, 1)  # (N, C, L) -> (N, L, C)
         x = self.norm(x)
+        if self.attn_block is not None:
+            x = self.attn_block(x)
         x = self.pwconv1(x)
         x = self.act(x)
         x = self.grn(x)
@@ -94,7 +217,8 @@ class GRN(nn.Module):
 
 
 class FiFE(nn.Module):
-    def __init__(self, in_chans=1, depths=[1, 1, 1, 1], dims=[40, 80, 160, 320], drop_path_rate=0.):
+    def __init__(self, in_chans=1, depths=[1, 1, 1, 1], dims=[40, 80, 160, 320], drop_path_rate=0.,
+                 attention_mode='none', attn_heads=4, attn_dropout=0.1):
         super().__init__()
         self.downsample_layers = nn.ModuleList()
         stem = nn.Sequential(
@@ -116,7 +240,13 @@ class FiFE(nn.Module):
         cur = 0
         for i in range(4):
             stage = nn.Sequential(
-                *[FIFEBlock(dim=dims[i], drop_path=dp_rates[cur + j]) for j in range(depths[i])]
+                *[FIFEBlock(
+                    dim=dims[i],
+                    drop_path=dp_rates[cur + j],
+                    attention_mode=attention_mode,
+                    attn_heads=attn_heads,
+                    attn_dropout=attn_dropout,
+                ) for j in range(depths[i])]
             )
             self.stages.append(stage)
             cur += depths[i]
@@ -141,7 +271,8 @@ class FiFE(nn.Module):
         return self.forward_features(x)
 
 class FrFE(nn.Module):
-    def __init__(self, in_chans=1, depths=[1, 1, 3, 1], dims=[40, 80, 160, 320], drop_path_rate=0.):
+    def __init__(self, in_chans=1, depths=[1, 1, 3, 1], dims=[40, 80, 160, 320], drop_path_rate=0.,
+                 attention_mode='none', attn_heads=4, attn_dropout=0.1):
         super().__init__()
 
         self.downsample_layers = nn.ModuleList()
@@ -165,7 +296,13 @@ class FrFE(nn.Module):
 
         for i in range(4):
             stage = nn.Sequential(
-                *[FRFEBlock(dim=dims[i], drop_path=dp_rates[cur + j]) for j in range(depths[i])]
+                *[FRFEBlock(
+                    dim=dims[i],
+                    drop_path=dp_rates[cur + j],
+                    attention_mode=attention_mode,
+                    attn_heads=attn_heads,
+                    attn_dropout=attn_dropout,
+                ) for j in range(depths[i])]
             )
             self.stages.append(stage)
             cur += depths[i]
