@@ -1,0 +1,36 @@
+
+我改好的版本如下：
+
+Q1
+我认识黄鹏宇是在2024年初春季学期（她大二下学期），当时她选修了我的《数字信号处理》课程。这是一门对数学要求非常严格的课程，旨在将理论概念与实际信号分析结合起来。鹏宇表现出了极强的学习能力和敏锐的分析思维，最终获得了92/100的优异成绩。
+
+鉴于她出色的数学基础和对算法设计的强烈兴趣，我邀请她作为算法研究员加入我的课题组。在2024年10月至12月期间，我悉心指导她开展了关于“联邦学习中类别分布异质性”的研究项目。在这段期间内，我们通过例会和技术讨论保持密切交流。我见证了她从一名优秀的本科生迅速成长为具有独立思考能力的科研人员。基于对她在课程和科研中展现出的严谨态度与技术实力的深刻了解，我非常荣幸地推荐她攻读贵校的博士学位。
+
+Q2
+在我们关于“联邦学习”的项目中，我们面临的核心挑战是：在极端非独立同分布（non-IID）的客户端数据下，基线算法 FedDisco 出现了严重的全局性能退化和局部模型发散。这是一个完全超出了本科生教学范畴的难题。但是，鹏宇没有畏难。她迅速通过查阅最新文献，自学了复杂的联邦优化框架知识，并独立诊断出统计异质性是导致发散的根本原因。
+
+更令我赞赏的是她将理论构想落地为实际算法的执行力。为了解决该问题，她提出并实现了一种“动态聚合权重分配策略”，并辅以新颖的全局收缩机制。在复杂的搭建环境复现及仿真阶段，面对频繁的报错，她展现出了极佳的科研韧性。她耐心地分析损失梯度的变化，不断验证和优化算法细节，最终使得模型在泛化能力和收敛稳定性上都获得了提升。
+
+此外，鹏宇将她本科仪器测控专业的硬件知识，与在我指导下掌握的机器学习能力紧密结合，这使她在处理“仿真到现实（Sim-to-Real）”这一跨领域挑战时极具潜力。考虑到她的学术自驱力、出色的科研韧性以及前瞻性的研究视野，我相信她已经具备了博士研究所需的高级素质，必将在贵校做出优秀的学术贡献。
+
+我对她予以最强烈的推荐。
+
+====================
+English Translation
+====================
+
+Q1: How long and in what capacity have you known the applicant? (Max. 500 words)
+
+I first became acquainted with Pengyu Huang in the spring semester of 2024 (during her sophomore year) when she enrolled in my "Digital Signal Processing" course. As a mathematically intensive course designed to bridge theoretical concepts with practical signal analysis, Pengyu demonstrated exceptional learning capabilities and a sharp analytical mindset, ultimately achieving an outstanding score of 92/100.
+
+Recognizing her solid mathematical foundation and strong interest in algorithm design, I invited her to join my research group as an Algorithm Researcher. From October 2024 to December 2024, I closely supervised her on a research project titled "Class Distribution Heterogeneity in Federated Learning." During this period, we maintained close communication through regular meetings and technical discussions. I witnessed her rapid transition from an outstanding undergraduate student to a researcher capable of independent thinking. Based on my profound understanding of her rigorous attitude and technical proficiency demonstrated in both coursework and research, I am highly honored to recommend her for doctoral studies at your esteemed institution.
+
+Q2: Please give any other comments that you think will be of assistance to PolyU in assessing the suitability of the applicant for a research degree. (Max. 500 words)
+
+In our "Federated Learning" project, the core challenge we faced was the severe global performance degradation and local model divergence of the baseline FedDisco algorithm under extreme non-IID client data distributions. This was a difficult problem completely beyond the undergraduate curriculum. However, Pengyu was undeterred. She quickly consulted the latest literature, self-studied the complex federated optimization framework, and independently diagnosed that statistical heterogeneity was the root cause of the divergence.
+
+What deeply impressed me even more was her execution capability in translating theoretical concepts into practical algorithms. To solve this problem, she proposed and implemented a "dynamic aggregation weight allocation strategy," supplemented by a novel global shrinkage mechanism. During the complex phase of environment setup, reproduction, and simulation, faced with frequent error reports, she demonstrated remarkable research resilience. She patiently analyzed the changes in loss gradients, continuously validated and optimized algorithm details, and ultimately achieved improvements in both the model's generalization capability and convergence stability.
+
+Furthermore, Pengyu closely integrated the hardware knowledge from her undergraduate major in Measurement and Control with the machine learning skills she mastered under my supervision. This gives her tremendous potential when tackling cross-disciplinary "Sim-to-Real" challenges. Considering her academic self-drive, outstanding research resilience, and forward-looking research vision, I firmly believe she already possesses the high-level qualities required for doctoral research and will certainly make excellent academic contributions to your university.
+
+She has my strongest recommendation.

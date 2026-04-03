@@ -1,0 +1,12 @@
+[1] Lau, John H. "Recent advances and trends in advanced packaging." IEEE Transactions on Components, Packaging and Manufacturing Technology 12.2 (2022): 228-252.
+[2] Lee, Ching-Kuan, et al. "Characterization and reliability assessment of solder microbumps and assembly for 3D IC integration." 2011 IEEE 61st Electronic Components and Technology Conference (ECTC). IEEE, 2011.
+[3] Xu, Xiaopeng, and Aditya Karmarkar. "3D TCAD modeling for stress management in through silicon via (TSV) stacks." AIP conference proceedings. Vol. 1378. No. 1. American Institute of Physics, 2011.
+[4] Cole, Edward I. "Non-destructive IC defect localization using optical beam-based imaging." 2008 IEEE Custom Integrated Circuits Conference. IEEE, 2008.
+[5] Jiang, Di, Wei Lin, and Nagarajan Raghavan. "A novel framework for semiconductor manufacturing final test yield classification using machine learning techniques." IEEE Access 8 (2020): 201246-201258.
+[6] Ji, YongSung, and Jee-Hyong Lee. "Using GAN to improve CNN performance of wafer map defect type classification: Yield enhancement." 2020 31st annual SEMI advanced semiconductor manufacturing conference (ASMC). IEEE, 2020.
+[7] Raissi, Maziar, Paris Perdikaris, and George E. Karniadakis. "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations." Journal of Computational physics 378 (2019): 686-707.
+[8] Desbrun, Mathieu, et al. "Discrete exterior calculus." arXiv preprint math/0508341 (2005).
+[9] Liau, E., and D. Schmitt-Landsiedel. "Characterizing semiconductor devices using computational intelligence techniques with semiconductor automatic test system (ATE)." 2004 IEEE International Conference onComputational Intelligence for Measurement Systems and Applications, 2004. CIMSA.. IEEE, 2004.
+[10] Baker, Nathan, et al. Workshop report on basic research needs for scientific machine learning: Core technologies for artificial intelligence. USDOE Office of Science (SC), Washington, DC (United States), 2019.
+[11] Tarantola, Albert. Inverse problem theory and methods for model parameter estimation. Society for industrial and applied mathematics, 2005.
+

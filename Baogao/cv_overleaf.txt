@@ -1,0 +1,179 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[letterpaper,margin=0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{mdwlist}
+\usepackage[default]{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+
+\pagestyle{empty}
+\setlength{\tabcolsep}{0em}
+\usepackage{setspace}
+\setlength{\parskip}{0.5em} % 增加段落间距
+\setstretch{1.2} % 调大行距，与PS保持一致
+
+\newenvironment{indentsection}[1]%
+{\begin{list}{}%
+{\setlength{\leftmargin}{#1}}%
+     \item[]
+}
+{\end{list}}
+
+\newcommand{\headerrow}[2]
+{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+#1 &
+#2 \\
+\end{tabular*}}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Pengyu Huang}}\\
+University of Electronic Science and Technology of China (UESTC), Chengdu, Sichuan
+\vspace{0.05cm}
+\\
+\raisebox{-0.2\height} {\Large \faPhoneSquare} \ \  (+86) 18078596151 \hfill \raisebox{-0.2\height}{\Large \faEnvelopeSquare} \ \ pengyu\_huang@foxmail.com \hfill \raisebox{-0.2\height}{\Large \faQq} \ \ 945047588 \hfill \raisebox{-0.2\height}{\Large \faWeixin} \ \ pyxixa
+\end{center}
+
+
+\hrule
+
+\definecolor{mydeepblue}{RGB}{0,0,128} 
+\subsection*{{\color{mydeepblue}\Large Education}}
+
+\begin{itemize}[leftmargin=1em,noitemsep,label=$\diamond$]
+\parskip=0.1em
+
+\item
+      \headerrow
+      {\textbf{University of Electronic Science and Technology of China (UESTC)}}
+      {\textbf{Sept 2022 - Jun 2026 (Expected)}}
+      \headerrow   
+      {\emph{B.Eng. in Measurement and Control Technology and Instruments, School of Automation Engineering}}
+      {}
+      \begin{itemize*}
+      \item \textbf{GPA:} 3.79/4.00 \quad \textbf{Average Score:} 87.01/100
+      \end{itemize*}
+            
+\end{itemize}
+
+
+\hrule
+
+\subsection*{{\color{mydeepblue}\Large Research Experience}}
+
+\renewcommand\labelitemi{}
+\renewcommand\labelitemii{$\bullet$}
+\begin{itemize}[leftmargin=1em]
+\parskip=0.1em
+
+\item
+      \headerrow
+      {\textbf{Transfer Learning-Based Fault Detection in Multicondition Inverter Systems}}
+      {\textbf{Dec 2025-Ongoing}}
+            \headerrow   
+      {\emph{Project Leader. Undergraduate Thesis}}
+      {}
+                  \begin{itemize*}
+      \item Established an unsupervised cross-domain fault diagnosis pipeline based on ISGFAN, completed comparative training on public and private datasets, and built a parameterized evaluation and visualization system.
+      \item Proposed a joint optimization strategy combining dynamic Gradient Reversal Layer (GRL) scheduling and target-entropy curriculum learning to mitigate adversarial instability and pseudo-label noise during early training.
+      \item Improved cross-domain feature alignment and target domain discriminability, achieving highly robust and stable diagnostic accuracy across varying operational conditions.
+                  \end{itemize*}
+            
+\item
+      \headerrow
+      {\textbf{ATE-Based Chip Test System Design and Implementation}}
+      {\textbf{Sept 2024-Oct 2024}}
+            \headerrow   
+      {\emph{Project Leader. Academic Project}}
+      {}
+                  \begin{itemize*}
+      \item Led the schematic design and physical layout of the Device Interface Board (DIB) using Altium Designer, stringently adhering to target IC datasheets to ensure testing signal integrity.
+      \item Formulated and programmed automated test sequences based on the CT1000P testing platform, successfully debugging the hardware-software integration constraints.
+      \item Conducted comprehensive functional component testing across multi-boundary conditions and output detailed electrical characteristic and failure analysis reports.
+                  \end{itemize*}
+          
+        \item 
+      \headerrow
+             {\textbf{Design and Implementation of Hand-held High-Precision Signal Generator}}
+      {\textbf{Feb 2025-Dec 2025}}
+             \headerrow   
+      {\emph{Project Leader. Academic Project}}
+      {}
+            \begin{itemize*}
+      \item Engineered a heterogeneous "FPGA + DAC + MCU" control architecture utilizing Direct Digital Synthesis (DDS) to generate customizable, high-precision waveforms with a 10MHz bandwidth.
+      \item Supervised the end-to-end development of the analog front-end and power management circuits, independently resolving complex multi-stage low-ripple power conversion challenges.
+      \item Executed PCB layout and conducted full-system bench-testing for low-noise amplifier and active filter stages to significantly suppress switching interference.
+            \end{itemize*}
+            
+\item
+      \headerrow
+      {\textbf{Class Distribution Heterogeneity in Federated Learning}}
+      {\textbf{Oct 2024-Dec 2024}}
+            \headerrow   
+      {\emph{Algorithm Researcher. Academic Project}}
+      {}
+
+                  \begin{itemize*}
+      \item Investigated the severe global performance degradation of the baseline FedDisco algorithm encountered under extreme non-IID/unbalanced class distribution conditions among client nodes.
+      \item Introduced a dynamic aggregation weight allocation strategy augmented by a novel global shrinkage mechanism, acting as a structural penalty against local model divergence.
+                \item Mitigated the risk of dimensional collapse consistently induced by data heterogeneity, leading to verified improvements in global model generalization and rapid convergence stability.
+                  \end{itemize*}
+            
+\end{itemize}
+
+\hrule
+
+
+\subsection*{{\color{mydeepblue}\Large Selected Awards}}
+
+\hyphenpenalty=1000
+\begin{itemize}[label=$\bullet$,leftmargin=1em,noitemsep,label=\ding{51}]
+        
+\item Silver Award, China International College Students' Innovation Competition \hfill Oct 2024
+        \item Silver Award, "CCB Cup" Sichuan Provincial College Students' Innovation Competition \hfill Aug 2024
+        \item First Prize, National College Student Art Exhibition (Sichuan Province) \hfill Jun 2024
+        \item Outstanding Student Scholarship at UESTC (Awarded 3 times) \hfill 2023-2025
+        \item Outstanding Youth League Cadre of UESTC \hfill May 2025
+        \item Star of Social Practice of UESTC \hfill Oct 2023
+        \item Third Prize, Western College Student Information Literacy Competition \hfill May 2023
+        \item Second Prize, Western College Student Information Literacy Competition (School-level) \hfill May 2023
+\end{itemize}
+
+\hrule
+
+
+\subsection*{{\color{mydeepblue}\Large Position of Responsibility}}
+
+\hyphenpenalty=1000
+\begin{itemize}[label=$\bullet$,leftmargin=1em,noitemsep,label=$\circ$]
+\item Head of the News Center, School of Automation Engineering, UESTC \hfill Sept 2023-May 2024
+\item Office Assistant, Course Construction Office, UESTC \hfill Sept 2024-Jan 2026
+        \item News Department Member, Chenxi Teaching Support Team, UESTC \hfill Jul 2023-Aug 2023
+        \item Member of the University Choir, UESTC \hfill Sept 2022-Sept 2023
+        \item Class Monitor, Class 2022060901, UESTC \hfill Sept 2022-Now
+\end{itemize}
+
+
+\hrule
+
+
+\subsection*{{\color{mydeepblue}\Large Skills}}
+\hyphenpenalty=1000
+\begin{itemize}[label=$\bullet$,leftmargin=1em,noitemsep,label=\ding{96}]
+\item \textbf{Programming Languages:}
+     Python, C, MATLAB, Verilog
+        \item \textbf{Engineering Software:}
+        MATLAB, Visual Studio Code, Multisim, JLC EDA, Altium Designer, AutoCAD, ISE, Keil
+\item \textbf{English Proficiency:}
+      IELTS (6.5), CET-6, CET-4 (Strong academic reading and writing skills)
+\end{itemize}
+
+\hrule
+
+\end{document}

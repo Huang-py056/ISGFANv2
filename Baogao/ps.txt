@@ -1,0 +1,42 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{setspace}
+\setlength{\parskip}{0.5em} % 增加段落间距
+\setstretch{1.2} % 适当增加行距，使版面更充盈且易于阅读
+
+\pagestyle{empty}
+\definecolor{mydeepblue}{RGB}{0,0,128} 
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Personal Statement}}\\
+\vspace{0.3cm}
+\end{center}
+
+\noindent\textbf{Applicant:} Pengyu Huang\\
+\textbf{Application for:} Ph.D. Programme, The Hong Kong Polytechnic University (PolyU)\\
+\textbf{Programme Details:} Doctor of Philosophy, Department of Applied Physics (Full-time)
+
+\vspace{0.5cm}
+
+My academic journey at the University of Electronic Science and Technology of China (UESTC) in Measurement and Control Technology and Instruments has fundamentally shaped my fascination with the intersection of hardware reliability and artificial intelligence. I am writing to express my strong enthusiasm for pursuing a Ph.D. at The Hong Kong Polytechnic University (PolyU). My core research vision focuses on developing physics-informed machine learning frameworks to solve complex, ill-posed inverse problems in advanced semiconductor manufacturing, with a specific emphasis on defect diagnosis in 3D-stacked High Bandwidth Memory (HBM) architectures.
+
+My undergraduate studies have equipped me with a rigorous foundation in both electronic instrumentation and algorithmic design, reflected in my major GPA of 3.79/4.00. My initial exposure to the critical challenges of semiconductor reliability stemmed from my leadership in the "ATE-Based Chip Test System Design and Implementation" project. While designing the Device Interface Board (DIB) and programming automated test sequences on the CT1000P platform, I gained practical insight into the complexities of IC testing. I quickly realized that identifying the root causes of anomalous electrical signatures is an inherently ambiguous process. In the industry, resolving this ambiguity relies heavily on destructive Physical Failure Analysis (PFA) --- a methodology that is expensive, unscalable, and increasingly a bottleneck for rapid New Product Introduction (NPI). 
+
+Motivated to overcome these hardware diagnostic limitations via data-driven methodologies, I actively engaged in advanced machine learning research. In my ongoing undergraduate thesis on transfer learning-based fault detection, I am developing an unsupervised cross-domain fault diagnosis pipeline (ISGFAN). By introducing a joint optimization strategy that combines dynamic Gradient Reversal Layer (GRL) scheduling with target-entropy curriculum learning, I successfully improved cross-domain feature alignment under varying operational conditions. This project honed my ability to address the "Sim-to-Real" domain shift challenge. Additionally, my research on class distribution heterogeneity in Federated Learning further strengthened my algorithmic capabilities; by designing dynamic aggregation weight allocation strategies, I learned how to stabilize model convergence and prevent dimensional collapse in highly skewed, non-IID data environments.
+
+Drawing upon my dual expertise in physical hardware testing and robust machine learning, I have formulated my Ph.D. research proposal: \textit{"Physics-Informed Graph Learning for Inverse Defect Diagnosis in 3D-Stacked High Bandwidth Memory: A Sim-to-Real Approach."} As the exponential growth of AI workloads drives the demand for HBM, stochastic material defects (such as Kirkendall voiding and TSV barrier degradation) have become dominant yield limiters. Existing purely data-driven diagnostic models are physically agnostic and topologically blind, struggling to model the non-Euclidean connectivity of 3D-IC structures. 
+
+During my Ph.D., I propose to develop a novel Graph-PINN (Physics-Informed Neural Network) architecture. By utilizing Discrete Exterior Calculus (DEC) to translate continuous semiconductor physics equations onto discrete graph topologies, my framework will constrain the neural network's hypothesis space to physically valid manifolds. To overcome the scarcity of industrial labeled failure data, I plan to construct a high-fidelity TCAD synthetic ground truth library and apply the domain adaptation strategies I mastered during my undergraduate research. By injecting physics-consistent noise to bridge the simulation-to-reality gap, this framework aims to enable a probabilistic "Virtual Failure Analysis," drastically reducing PFA turnaround times and accelerating yield ramp-up phases.
+
+The Hong Kong Polytechnic University, with its world-class research infrastructure, vibrant academic community, and strong emphasis on interdisciplinary engineering innovation, is the absolute ideal environment for my doctoral studies. I am particularly drawn to the pioneering research conducted at the \textbf{Department of Applied Physics} and would be highly honored to conduct my research under the supervision of \textbf{Prof. Tom Tao WU}. PolyU’s collaborative ties with the industry will also provide a crucial platform for validating my proposed algorithms on laboratory-scale test vehicles and exploring robust technology transfer.
+
+Armed with a solid foundation in electronic hardware, a proven track record of solving complex algorithmic challenges, and a heavily researched Ph.D. proposal, I am fully prepared for the rigors of doctoral research. I am eager to dedicate myself to advancing the frontier of Scientific Machine Learning (SciML) for semiconductor manufacturing at PolyU, and I am confident in my potential to make impactful theoretical and industrial contributions.
+
+\end{document}

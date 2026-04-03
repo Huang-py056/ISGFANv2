@@ -1,0 +1,227 @@
+1.	Name of Proposed Chief Supervisor (if applicable):
+	
+	
+2.	Project Title:
+	Physics-Informed Graph Learning for Inverse Defect Diagnosis in 3D-Stacked High Bandwidth Memory: A Sim-to-Real Approach
+	
+3.	Project Objectives: (Purpose of proposed investigation)
+	To develop a theoretically grounded, physics-informed graph learning framework that addresses the ill-posed inverse problem of inferring latent micro-scale material defects from macro-scale electrical signatures in 3D-stacked High Bandwidth Memory (HBM) architectures. The central scientific contribution is the formulation of a Graph-based Physics-Informed Neural Network (Graph-PINN) that extends Scientific Machine Learning (SciML) from continuous Euclidean domains to the discrete, non-Euclidean topologies characteristic of advanced semiconductor interconnects. This framework aims to provide a mathematically regularized solution to the non-unique defect-to-signal mapping problem, enabling a data-efficient "Virtual Failure Analysis" capability that is robust in the small-data regimes typical of semiconductor manufacturing.
+
+Objective 1: Physics-Based Forward Modeling and Synthetic Ground Truth Generation
+
+To construct a high-fidelity TCAD simulation framework (Synopsys Sentaurus) that establishes the forward mapping from parameterized material defects (e.g., TSV void fraction, micro-bump crack geometry) to their resulting electrical signatures (I-V, C-V curves). This "Synthetic Defect Library" (50,000+ samples) serves as the sole primary training dataset, ensuring the project's core methodology is independent of proprietary industrial data. A key sub-objective is to systematically quantify the non-uniqueness of this forward mapping—i.e., cataloguing which distinct defect configurations produce statistically indistinguishable electrical outputs—to formally define the boundaries of the inverse problem.
+
+Objective 2: Formulation of a Graph-PINN Framework for Discrete Physical Systems
+
+To formulate and solve the inverse defect diagnosis problem using a novel Graph-PINN architecture. The core theoretical contribution is the rigorous discretization of governing semiconductor physics equations—specifically, the steady-state heat diffusion equation and the drift-diffusion current continuity equation—onto a graph structure using Discrete Exterior Calculus (DEC). This involves:
+
+Replacing the continuous spatial Laplacian (∇²) with the Graph Laplacian (L = D − A), where D is the degree matrix and A is the adjacency matrix of the HBM interconnect topology. 
+
+Formulating the physics residual loss as the violation of Kirchhoff's Current Law (KCL) at each graph node (ΣJ_edge = 0 for non-defective nodes) and the discrete energy conservation law, thereby constraining the neural network's solution space to physically valid manifolds.
+
+Objective 3: Addressing Domain Shift via Simulation-Augmented Transfer Learning
+
+To develop a robust domain adaptation strategy that bridges the gap between clean synthetic TCAD data and noisy real-world measurements. Rather than relying on large-scale industrial data access, this objective focuses on:
+
+Designing a physics-consistent noise injection model that augments the synthetic dataset with realistic manufacturing variations (e.g., measurement uncertainty, environmental drift), derived from published literature and open-source process data. 
+
+Validating the transfer learning pipeline using a small, controlled set of laboratory-fabricated test vehicles or publicly available benchmark datasets, demonstrating that the framework achieves robust generalization even in data-constrained scenarios.
+
+Objective 4: Validation via Probabilistic Inverse Prediction and Interpretability
+
+To validate the framework's ability to provide probabilistic, not deterministic, inverse diagnoses. Given the inherent non-uniqueness of the inverse problem, the model will output a ranked probability distribution over candidate root causes (e.g., "85% probability: Kirkendall void at micro-bump interface; 12% probability: TSV barrier discontinuity"). Validation will be conducted against TCAD-generated test cases with known ground truth, supplemented by available physical failure analysis data. Interpretability will be ensured via SHAP-based attribution analysis, linking predictions to physically meaningful electrical features.
+	
+4.	Scope and Background of Research:
+(Please identify key issues/problems to be addressed)
+
+	4.1 Research Context: The Reliability Challenge in High-Volume HBM Manufacturing
+
+The exponential growth of AI workloads has made High Bandwidth Memory (HBM) a critical component of modern computing infrastructure. While next-generation HBM4 architectures explore Hybrid Bonding for ultra-high-density interconnects, the vast majority (>70%) of global AI memory demand continues to be served by mature Micro-bump-based architectures (HBM2E, HBM3, HBM3E) due to their superior manufacturing yield and cost-effectiveness [1]. As these architectures scale to 8-to-12 DRAM layers, stochastic defects at material interfaces—such as Kirkendall voiding in solder joints, thermo-mechanical cracking, and TSV barrier degradation—have become the dominant yield limiter [2]. This defines the industrial context of the proposed research.
+
+4.2 The Core Scientific Problem: An Ill-Posed Inverse Problem
+
+The fundamental scientific challenge addressed by this research is an ill-posed inverse problem (Figure 1, conceptual).
+
+4.2.1 The "Forward Problem" (Well-Understood): Given a specific material defect (e.g., a 5µm void in a TSV), predicting its electrical consequence (e.g., a 15% increase in via resistance) is a well-posed forward problem solvable by TCAD simulation [3].
+
+4.2.2 The "Inverse Problem" (Open Challenge): In manufacturing, the opposite is required: given an anomalous electrical signature from an Automated Test Equipment (ATE) test, one must infer the underlying material root cause. This inverse mapping is non-unique—a single electrical symptom (e.g., elevated leakage current) can arise from fundamentally different physical mechanisms (e.g., TSV Cu barrier failure, ILD moisture absorption, or micro-bump IMC bridging) [4]. Current practice resolves this ambiguity through destructive Physical Failure Analysis (PFA), which is costly, slow (days to weeks per sample), and inherently unscalable.
+
+4.2.3 Limitations of Existing Data-Driven Approaches: Prior work has applied standard machine learning (Random Forest, CNN) to ATE data for yield prediction [5, 6]. However, these purely data-driven approaches suffer from two critical limitations:
+
+Topological Blindness: Standard flat-vector or grid-based models (e.g., CNNs) cannot naturally represent the non-Euclidean, graph-structured 3D connectivity of HBM stacks, failing to capture how defects propagate across layers. 
+
+Physics Agnosticism: Without physical constraints, models trained on limited industrial data are prone to learning spurious correlations, leading to poor out-of-distribution generalization and physically implausible predictions. This is particularly acute in semiconductor manufacturing where labeled failure data is inherently scarce and expensive.
+
+4.2.4 The Gap in Physics-Informed Neural Networks (PINNs): While PINNs have shown success in embedding physical laws into neural networks for continuous-domain problems (e.g., fluid dynamics, thermal modeling) [7], their application to discrete, heterogeneous systems like 3D IC interconnects remains largely unexplored. A direct extension is non-trivial because it requires the reformulation of continuous PDEs onto graph structures—a problem at the intersection of discrete differential geometry and deep learning.
+
+4.3 Scope and Boundaries
+
+Technological Focus: The primary focus is on Micro-bump-based HBM2E/HBM3/HBM3E architectures. While the Graph-PINN formulation is agnostic to specific interconnect types (making it theoretically transferable to future Hybrid Bonding architectures), initial model construction and validation will be confined to micro-bump and TSV structures to ensure consistency and depth. 
+
+Core Scope: The research is scoped around the algorithmic and simulation aspects. Physical characterization (TEM/FIB) is treated as a source of calibration and validation data, not as a primary experimental workload for the candidate. Characterization data will be sourced from published literature, collaborative partners, or laboratory-scale test vehicles.
+
+
+	
+5.	Research Methodology:
+The methodology is structured in four phases, designed with a simulation-first, validation-second philosophy to ensure feasibility regardless of external data availability.
+
+Phase 1: Multi-Physics Forward Modeling and Synthetic Ground Truth Generation (Months 1–14)
+
+5.1.1 Objective: To generate a large-scale, physically grounded "Synthetic Defect Library" that serves as the sole primary training dataset.
+
+5.1.2 TCAD Model Construction: High-fidelity 3D Finite Element Models of representative TSV and micro-bump unit cells will be constructed in Synopsys Sentaurus TCAD. The models will solve coupled governing equations:
+
+Electrical: Drift-diffusion equations for current transport, with boundary conditions reflecting contact resistances. 
+
+Thermal: Steady-state and transient heat conduction equations (Fourier's Law) coupled to Joule heating. 
+
+Mechanical: Thermo-elastic stress analysis accounting for CTE mismatch between Si, Cu, and solder.
+
+5.1.3 Parametric Defect Injection ("Virtual DOE"): A systematic parametric sweep will be conducted, varying defect parameters:
+
+
+	TSV void fraction (1%–20%), void location (center vs. sidewall). 
+Micro-bump IMC thickness (0.5µm–5µm), Kirkendall void density. 
+ILD permittivity variation (simulating moisture absorption).
+
+ For each configuration, the resulting electrical signatures (I-V curves, C-V curves, impedance spectra) will be extracted. Crucially, this phase will explicitly map out the "degeneracy zones"—regions in the parameter space where distinct defect configurations produce overlapping electrical signatures—to formally characterize the non-uniqueness of the inverse problem.
+
+5.1.4 Output: A Synthetic Defect Library of 50,000+ labeled samples, with each sample consisting of (defect parameters, electrical signature, stress/thermal map). This dataset is the project's self-contained foundation.
+
+Phase 2: Formulation of the Graph-PINN Architecture (Months 10–26)
+
+5.2.1 Graph Construction of HBM Topology: The 3D HBM stack is formally represented as a graph G = (V, E):
+
+Nodes (V): Each functional unit (individual TSV, micro-bump, I/O pad, DRAM cell block) is a node, with its feature vector comprising local electrical measurements (resistance, capacitance, leakage). 
+
+Edges (E): Physical interconnections (vertical TSV-to-bump links, horizontal redistribution layer traces) are edges, weighted by their nominal conductance/thermal conductivity.
+
+5.2.2 Discretization of Physics via Graph Calculus: The key innovation is the rigorous translation of continuous PDEs to their discrete graph counterparts using principles from Discrete Exterior Calculus (DEC) [8]:
+
+Heat Diffusion: The continuous equation ρcₚ(∂T/∂t) = k∇²T + Q is discretized as:
+
+ρcₚ(dT_i/dt) = k · Σ_{j∈N(i)} w_{ij}(T_j − T_i) + Q_i
+
+where T_i is the temperature at node i, N(i) is its set of graph neighbors, and w_{ij} is the edge weight (thermal conductance) derived from geometry and material properties.
+
+Current Continuity (KCL): At any non-source, non-sink node i:
+
+Σ_{j∈N(i)} J_{ij} = 0
+
+where J_{ij} is the current density along edge (i,j). A defective node (e.g., a voided TSV) will violate this conservation law, and the magnitude of violation serves as a physically meaningful defect indicator.
+
+5.2.3 Physics-Regularized Loss Function: The Graph-PINN is trained by minimizing a compound loss: 
+
+L_total = L_data + λ_phy · L_physics + λ_reg · L_regularization
+
+L_data: Standard supervised loss (e.g., cross-entropy for defect classification, MSE for defect parameter regression) against the TCAD ground truth from Phase 1. 
+
+L_physics: The physics residual, computed as the L2-norm of the KCL and energy conservation violations at all graph nodes. This term constrains the network's hypothesis space to physically valid solutions, acting as an implicit regularizer that is critical for generalization in small-data regimes. 
+
+L_regularization: Standard weight decay to prevent overfitting. 
+
+λ_phy: A hyperparameter controlling the strength of the physics constraint, which will be studied via ablation experiments to quantify the contribution of physical priors.
+
+5.2.4 Multi-Modal Fusion (Optional Extension): If physical cross-section images become available (from literature or collaboration), a secondary image branch (e.g., ResNet-based) can be fused with the graph branch via a Cross-Modal Attention mechanism. This is designed as a modular extension, not a core dependency.
+
+Phase 3: Domain Adaptation and Robustness Engineering (Months 20–36)
+
+5.3.1 The Sim-to-Real Gap: A critical challenge is that TCAD simulations, however accurate, produce idealized data that lacks the stochastic noise of real manufacturing (measurement drift, environmental variation, tester-to-tester offset). Directly deploying a model trained on synthetic data to real-world ATE data would result in significant performance degradation.
+
+5.3.2 Physics-Consistent Noise Augmentation (Primary Strategy): To address this without requiring large-scale industrial data, we will augment the synthetic dataset with physically motivated noise models:
+
+Measurement Noise: Additive Gaussian noise calibrated to published ATE measurement specifications (e.g., ±0.5% for resistance, ±1% for capacitance) [9]. 
+
+Process Variation: Systematic parameter shifts (e.g., ±5% in TSV diameter) sampled from published process capability data (Cpk reports).
+
+Environmental Drift: Slow-varying offsets simulating temperature and humidity fluctuations during testing. 
+
+This strategy ensures that the model encounters realistic data diversity during training, without any dependency on proprietary data.
+
+5.3.3 Transfer Learning with Limited Real Data (Secondary Strategy): If anonymized industrial data becomes available through collaboration (estimated ~1,000–5,000 samples), it will be used strictly for fine-tuning the pre-trained Graph-PINN model. The fine-tuning protocol will freeze the physics-informed layers and only update the domain-adaptation layers, preserving the learned physical priors.
+
+5.3.4 Risk Mitigation and Feasibility Statement: The methodology is designed with a tiered feasibility guarantee:
+
+Tier 1 (Guaranteed): Even with zero external data, the full Graph-PINN framework can be developed, trained, and validated entirely on TCAD synthetic data with physics-consistent noise augmentation. This is sufficient for the core theoretical contributions (publications in top ML/EDA venues). 
+
+Tier 2 (Enhanced): With laboratory-scale test vehicles (fabricated via MPW services or sourced from collaborators), the Sim-to-Real transfer can be partially validated. 
+
+Tier 3 (Ideal): With industrial partner data, full industrial validation can be demonstrated. 
+
+The thesis can be completed at any tier. Tier 1 delivers the theoretical novelty; Tiers 2 and 3 provide progressively stronger empirical validation.
+
+	Phase 4: Validation, Interpretability, and Benchmarking (Months 30–42)
+
+5.4.1 Validation Protocol:
+
+Held-out TCAD Test Set: A reserved subset (20%) of the Synthetic Defect Library, including samples from the "degeneracy zones," will be used for rigorous evaluation.
+
+Ablation Studies: Systematic removal of the physics loss term (λ_phy = 0) to quantify the specific contribution of physics-informed regularization versus pure data-driven learning. This is a mandatory experiment to substantiate the core thesis claim.
+
+Baseline Comparisons: The Graph-PINN will be benchmarked against: (a) Standard GNN without physics constraints; (b) Standard PINN on flattened features (no graph); (c) Conventional ML baselines (Random Forest, XGBoost, CNN).
+
+Metrics: Beyond standard F1-Score and AUC, we will report: (a) Test Escape Rate (target: <500 DPPM); (b) Overkill Rate (target: <1%); (c) Physics Consistency Score (percentage of predictions that satisfy KCL within tolerance).
+
+5.4.2 Probabilistic Inverse Diagnosis: The model will be designed to output calibrated probability distributions over candidate root causes, rather than single-point predictions. This directly addresses the non-uniqueness of the inverse problem. Uncertainty quantification methods (e.g., MC Dropout or ensemble methods) will be explored.
+
+5.4.3 Interpretability: SHAP (SHapley Additive exPlanations) values will be computed at the graph-node level, providing physically meaningful attribution (e.g., "The prediction of Kirkendall voiding is primarily driven by the jitter increase observed at Node 47 (Layer 6 micro-bump) and the resistance drift at its connected TSV Node 23").
+
+
+6.	Project Significance and Value:
+	
+6.1 Theoretical and Academic Significance
+
+6.1.1 Extension of SciML to Discrete Non-Euclidean Domains: The primary theoretical contribution is the formulation of the Graph-PINN framework, which extends Physics-Informed Neural Networks from continuous Euclidean domains to discrete graph topologies. By rigorously applying Discrete Exterior Calculus to embed semiconductor physics (KCL, heat diffusion) as graph-based constraints, this work provides a general methodology applicable beyond HBM to any complex, heterogeneous interconnect system (e.g., chiplets, interposers, advanced packaging). This fills a clear gap in the current SciML literature [7, 10].
+
+6.1.2 Regularization of an Ill-Posed Inverse Problem: This research provides a principled approach to regularizing the non-unique inverse mapping from electrical signatures to material defects. By demonstrating that physics-informed constraints can effectively narrow the solution space and provide calibrated uncertainty estimates, it contributes to the broader theory of inverse problems in engineering [11].
+
+6.1.3 Data-Efficient Learning via Physics Priors: By rigorously benchmarking against physics-agnostic baselines (via ablation studies), this work provides quantitative evidence for the value of physics priors in small-data regimes. This contributes to the growing body of knowledge on "Data-Efficient AI" for high-precision manufacturing.
+
+6.2 Industrial and Practical Value 
+
+6.2.1 Enabling "Virtual Failure Analysis": The practical outcome is a predictive framework that can reduce reliance on destructive PFA by providing probabilistic root-cause diagnoses from non-destructive electrical test data. The target is a 40–60% reduction in physical FA requests for preliminary triage.
+
+6.2.2 Accelerating Yield Ramp-Up: By shortening the diagnostic cycle from weeks (for PFA) to near real-time (for model inference), the framework can significantly compress the feedback loop for New Product Introduction (NPI), potentially reducing yield ramp-up timelines by 20–30%.
+
+6.2.3 Transferability: The Graph-PINN formulation is architecture-agnostic. While validated on micro-bump-based HBM, the graph construction and physics embedding can be reconfigured for Hybrid Bonding, chiplet interconnects, or other advanced packaging technologies, ensuring long-term relevance. 
+
+6.3 Broader Impact
+
+This project cultivates interdisciplinary expertise at the intersection of semiconductor device physics, materials science, and machine learning—a talent profile critically needed by the global semiconductor industry. The open-source release of the Graph-PINN framework and the Synthetic Defect Library (upon publication) will also contribute to the broader research community.
+	
+7.	Details of Any External Collaboration:
+
+	7.1 Academic Collaboration: Material Characterization Data
+
+Partner Institution:  Tsinghua University, School of Materials Science and Engineering
+
+Nature of Collaboration: Access to advanced physical characterization facilities (TEM, FIB, SEM/EDX) for calibration and validation purposes. The partner will provide expertise in interfacial material analysis and, where available, share published or pre-existing characterization datasets of HBM-relevant structures.
+
+Scope: This collaboration supports Phase 1 (TCAD model calibration) and Phase 4 (validation). The candidate's primary workload remains in simulation and algorithm development; physical characterization is performed collaboratively, not as a sole responsibility.
+
+Feasibility Note: Even without this collaboration, the core methodology can proceed using published TEM/SEM data from the open literature for TCAD calibration (Tier 1 feasibility).
+
+7.2 Industrial Collaboration: Data Access and Pilot Validation
+
+Target Partners: Leading HBM manufacturers or OSAT (Outsourced Semiconductor Assembly and Test) companies. 
+
+Nature of Collaboration: Collaboration will be sought to obtain anonymized ATE datasets and failed unit samples for domain adaptation (Phase 3) and industrial validation (Phase 4).
+
+ Scope: This collaboration is classified as Tier 2/Tier 3 enhancement. The research is explicitly designed to produce complete and publishable results without this data (Tier 1). Industrial data, if obtained, elevates the validation standard but is not a prerequisite for the thesis.
+
+ Data Privacy: Strict NDAs and Data Processing Agreements will govern all data exchanges. Only anonymized, normalized electrical features will be used.
+
+7.3 Publication Considerations
+
+Given the sensitivity of semiconductor manufacturing data, publications will focus exclusively on the algorithmic framework and results derived from TCAD synthetic data. Any results using industrial data will require partner approval prior to publication. No complications are anticipated for thesis publication, as the core contributions are methodological and can be fully demonstrated on synthetic benchmarks.
+	
+	
+	
+8.	Declaration of the Applicant
+	I wish to register for a research degree on the basis of the proposal given in this Form (GSB/1A).
+
+I understand that, during the period of my registration with the University, I may not be a candidate for any other degree or award.
+
+I understand that, except with the specific permission of the Research Committee, I must prepare and defend my thesis in English.  (You are required to seek permission if another language, which is considered more appropriate to the subject, is to be used in the presentation of the thesis.  Please submit the justification together with this application.)
+
+I undertake to abide by the general regulations of the University.

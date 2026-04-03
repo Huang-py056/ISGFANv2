@@ -1,0 +1,111 @@
+Q1
+我认识黄鹏宇同学始于2023年秋季。当时她选修了我主讲的《数字逻辑设计及应用》课程。在课堂上，她展现出了对硬件底层逻辑的浓厚兴趣以及极强的学习能力，给我留下了深刻的印象。
+
+基于对她专业基础的认可，在2025年的近一年时间里，我担任了她“手持式高精度信号发生器的设计与实现”综合课程设计的指导教师。在此期间，通过定期的阶段性汇报与技术讨论，我亲眼见证了她将抽象的数字逻辑理论成功转化为高度复杂的物理硬件系统。我对她在硬件开发领域的动手能力、系统架构视野以及踏实严谨的学术态度有了充分的了解，因此我很荣幸向贵校推荐她。
+
+Q2
+在评估鹏宇是否适合在香港理工大学进行严谨的博士研究时，我想重点突出她卓越的工程实践能力以及作为团队负责人的领导力与责任感。
+
+在我们的信号发生器项目中，她极具前瞻性地设计了基于直接数字合成（DDS）的异构“FPGA + DAC + MCU”底层控制架构。实际的硬件开发极其考验设计者的综合能力，而鹏宇展现出了极高的工程素养。她独立承担了最具挑战性的前端模拟电路和多级电源管理模块的端到端开发，通过深入钻研芯片选型并进行修改测试，最终成功实现了电源转换和低噪声放大电路设计。
+
+除了过硬的专业技术，她还展现了出色的团队协调能力。面对FPGA代码与MCU逻辑联调时出现的接口时序冲突，她主动担责，组织组员利用示波器逐步排查信号异常，理清系统联调逻辑。她以清晰的思路和积极的态度，带领整个团队高效度过了最具挑战性的系统集成阶段。
+
+这种跨越纯软件理论、能够直接针对底层硬件进行联调试错的综合能力，在本科生中是非常难得的。考虑到她申请贵校的博士课题深刻涉及半导体底层物理交互与硬件测试验证，我相信她扎实的硬件背景和出众的协同领导力，将为她在贵校开展从仿真到现实（Sim-to-Real）的大型科研工作提供极大的优势。我极其看好她的科研潜力，并予以最强烈的推荐。
+
+====================
+English Translation
+====================
+
+Q1: How long and in what capacity have you known the applicant? (Max. 500 words)
+
+I first became acquainted with Pengyu Huang in the fall of 2023 when she enrolled in my "Digital Logic Design and Applications" course. During the classes, she demonstrated a strong interest in low-level hardware logic and exceptional learning capabilities, which left a deep impression on me.
+
+Recognizing her solid academic foundation, I served as her supervisor for the comprehensive curriculum design project, "Design and Implementation of a Hand-held High-Precision Signal Generator," which spanned nearly a year in 2025. Through regular progress reports and technical discussions, I witnessed her successfully translate abstract digital logic theories into highly complex physical hardware systems. Having gained a profound understanding of her hands-on development skills, system-level architectural vision, and rigorous academic attitude, I am highly honored to recommend her to your esteemed institution.
+
+Q2: Please give any other comments that you think will be of assistance to PolyU in assessing the suitability of the applicant for a research degree. (Max. 500 words)
+
+When assessing Pengyu's suitability for rigorous doctoral research at PolyU, I would like to specifically highlight her outstanding engineering practical abilities and her strong leadership and sense of responsibility as a team leader.
+
+In our Signal Generator project, she forward-lookingly designed a heterogeneous "FPGA + DAC + MCU" control architecture based on Direct Digital Synthesis (DDS). Actual hardware development rigorously tests a designer's comprehensive capabilities, and Pengyu demonstrated exceptional engineering professionalism. She independently undertook the end-to-end development of the most challenging analog front-end and multi-stage power management modules. By conducting in-depth research on chip selection and carrying out modifications and tests, she successfully accomplished the design of both the power conversion and low-noise amplification circuits.
+
+Beyond her solid technical expertise, she exhibited excellent team coordination skills. Faced with interface timing conflicts during the joint debugging of FPGA code and MCU logic, she proactively took responsibility. She organized team members to systematically investigate signal anomalies using an oscilloscope and clarify the integration logic. With clear thinking and a positive attitude, she efficiently guided the entire team through the challenging system integration phase.
+
+This comprehensive ability to transcend theoretical software models and perform hands-on debugging directly on low-level hardware is highly rare among undergraduate students. Considering that her proposed Ph.D. research deeply involves low-level physical interactions and hardware testing validation, I firmly believe her robust hardware background and outstanding collaborative leadership will provide her with significant advantages in conducting large-scale "Sim-to-Real" scientific research at your university. I am extremely confident in her research potential and offer my strongest recommendation.
+
+
+====================
+Final Version for Direct Submission
+====================
+
+Q1: How long and in what capacity have you known the applicant? (Max. 500 words)
+
+I first became acquainted with Pengyu Huang in the fall of 2023 when she enrolled in my "Digital Logic Design and Applications" course. During the classes, she demonstrated a strong interest in low-level hardware logic and exceptional learning capabilities, which left a deep impression on me.
+
+Recognizing her solid academic foundation, I served as her supervisor for the comprehensive curriculum design project, "Design and Implementation of a Hand-held High-Precision Signal Generator," which spanned nearly a year in 2025. Through regular progress reports and technical discussions, I witnessed her successfully translate abstract digital logic theories into highly complex physical hardware systems. Having gained a profound understanding of her hands-on development skills, system-level architectural vision, and rigorous academic attitude, I am highly honored to recommend her to your esteemed institution.
+
+Q2: How would you rate the following characteristics of the applicant in comparison with other students you have taught or supervised? (Please tick as appropriate)
+
+Suggested rating for the applicant:
+- Intellectual capacity: Excellent (top 5%)
+- Analytical power and reasoning: Excellent (top 5%)
+- Knowledge of proposed research study: Good (top 6% - 20%)
+- Judgment: Excellent (top 5%)
+- Imagination and originality: Good (top 6% - 20%)
+- Motivation and commitment: Excellent (top 5%)
+
+Q3: How many students are there in your comparison group?
+
+Suggested answer: Approximately 50 students (the relevant course cohort and project group that I have taught or supervised).
+
+Q4: Please describe the research ability and potential of the applicant, and explain any other dimensions of the applicant's experience and skills that are relevant to his/her application.
+
+When assessing Pengyu's suitability for rigorous doctoral research at PolyU, I would like to specifically highlight her outstanding engineering practical abilities and her strong leadership and sense of responsibility as a team leader.
+
+In our Signal Generator project, she forward-lookingly designed a heterogeneous "FPGA + DAC + MCU" control architecture based on Direct Digital Synthesis (DDS). Actual hardware development rigorously tests a designer's comprehensive capabilities, and Pengyu demonstrated exceptional engineering professionalism. She independently undertook the end-to-end development of the most challenging analog front-end and multi-stage power management modules. By conducting in-depth research on chip selection and carrying out modifications and tests, she successfully accomplished the design of both the power conversion and low-noise amplification circuits.
+
+Beyond her solid technical expertise, she exhibited excellent team coordination skills. Faced with interface timing conflicts during the joint debugging of FPGA code and MCU logic, she proactively took responsibility. She organized team members to systematically investigate signal anomalies using an oscilloscope and clarify the integration logic. With clear thinking and a positive attitude, she efficiently guided the entire team through the challenging system integration phase.
+
+This comprehensive ability to transcend theoretical software models and perform hands-on debugging directly on low-level hardware is highly rare among undergraduate students. Considering that her proposed Ph.D. research deeply involves low-level physical interactions and hardware testing validation, I firmly believe her robust hardware background and outstanding collaborative leadership will provide her with significant advantages in conducting large-scale "Sim-to-Real" scientific research at your university. I am extremely confident in her research potential and offer my strongest recommendation.
+
+Q5: What is your overall recommendation for the applicant to pursue research studies in Hong Kong?
+
+I recommend Pengyu Huang without reservation for research studies in Hong Kong. She has my strongest recommendation.
+
+
+====================
+中文对照
+====================
+
+Q1：您认识申请人有多久？以何种方式认识？（最多500词）
+
+我最早是在2023年秋季认识黄鹏宇同学的，当时她选修了我讲授的《数字逻辑设计及应用》课程。在课堂上，她对底层硬件逻辑表现出浓厚兴趣，并展现出极强的学习能力，给我留下了深刻印象。
+
+基于她扎实的学术基础，我在2025年近一年的时间里担任了她综合课程设计项目《手持式高精度信号发生器的设计与实现》的指导教师。在此期间，通过定期进展汇报和技术讨论，我亲眼见证了她将抽象的数字逻辑理论成功转化为高度复杂的物理硬件系统。我对她的动手开发能力、系统级架构视野以及严谨的学术态度有了深刻了解，因此我非常荣幸向贵校推荐她。
+
+Q2：请与您教过或指导过的其他学生相比，评价申请人的以下特质。（请勾选适当选项）
+
+对该申请人的建议评价：
+- 智力能力：优秀（前5%）
+- 分析能力与推理能力：优秀（前5%）
+- 对拟议研究课题的知识：良好（前6%–20%）
+- 判断力：优秀（前5%）
+- 想象力与原创性：良好（前6%–20%）
+- 动机与投入度：优秀（前5%）
+
+Q3：您的比较组中共有多少名学生？
+
+建议填写：大约50名学生（即我所授课或指导过的相关课程班级与项目组学生）。
+
+Q4：请描述申请人的研究能力和潜力，并说明其经历和技能中与申请相关的其他方面。
+
+在评估鹏宇是否适合在港理工开展严谨的博士研究时，我想重点强调她卓越的工程实践能力，以及作为团队负责人的领导力和责任感。
+
+在我们的信号发生器项目中，她前瞻性地设计了基于直接数字合成（DDS）的异构“FPGA + DAC + MCU”控制架构。实际硬件开发极其考验设计者的综合能力，而鹏宇展现出了极高的工程素养。她独立承担了最具挑战性的前端模拟电路和多级电源管理模块的端到端开发，通过深入研究芯片选型并进行修改和测试，最终成功完成了电源转换和低噪声放大电路的设计。
+
+除了扎实的专业技术，她还展现了出色的团队协调能力。面对FPGA代码与MCU逻辑联调时出现的接口时序冲突，她主动承担责任，组织组员利用示波器逐步排查信号异常，梳理系统联调逻辑。她思路清晰、态度积极，带领整个团队高效度过了最具挑战性的系统集成阶段。
+
+这种能够跨越纯软件理论、直接针对底层硬件进行联调试错的综合能力，在本科生中非常难得。考虑到她拟议的博士研究深度涉及底层物理交互与硬件测试验证，我坚信她扎实的硬件背景和出色的协同领导力，将为她在贵校开展大规模“从仿真到现实（Sim-to-Real）”科研工作提供显著优势。我对她的科研潜力极为看好，并给予最强烈推荐。
+
+Q5：您对申请人赴香港攻读研究学位的总体推荐意见是什么？
+
+我毫无保留地推荐黄鹏宇赴香港攻读研究学位。她是我最强烈推荐的学生。
