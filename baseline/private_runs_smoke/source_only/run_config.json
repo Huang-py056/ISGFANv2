@@ -1,0 +1,22 @@
+{
+  "method": "source_only",
+  "data_dir": "self_data/75_Sta_60_test_dso",
+  "signal_length": 2048,
+  "batch_size": 16,
+  "epochs": 2,
+  "lr": 0.001,
+  "min_lr": 1e-05,
+  "weight_decay": 0.0005,
+  "feature_dim": 128,
+  "lambda_transfer": 1.0,
+  "lambda_adv": 0.2,
+  "test_ratio": 0.2,
+  "seed": 42,
+  "num_workers": 4,
+  "gpu_id": 0,
+  "device": "cuda",
+  "eval_interval": 5,
+  "print_interval": 5,
+  "output_root": "baseline/private_runs_smoke",
+  "log_file": "baseline/logs/source_only_smoke.log"
+}

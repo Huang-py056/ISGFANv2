@@ -1,0 +1,26 @@
+2026-04-06 17:30:01,664 - INFO - method=mcc, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 17:30:01,665 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 17:30:07,709 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 17:30:07,709 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 17:30:07,709 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 17:30:07,738 - INFO - source_class_counts=[6469.0, 12880.0, 6440.0, 14.0, 58.0, 14.0, 86.0, 14.0]
+2026-04-06 17:30:12,051 - INFO - [Eval @ Epoch 1/40] test_loss=0.692968, test_acc=0.7330, FAR=0.0494, FDR=0.9990
+2026-04-06 17:30:12,052 - INFO - [Epoch 1/40] train_cls=0.908508, train_transfer=0.842882, train_adv=0.000000, train_total=0.908598, lr=0.0009985, eta_sec=125
+2026-04-06 17:30:15,420 - INFO - [Eval @ Epoch 5/40] test_loss=0.447427, test_acc=0.7795, FAR=0.0080, FDR=0.9994
+2026-04-06 17:30:15,421 - INFO - [Epoch 5/40] train_cls=0.481812, train_transfer=0.729026, train_adv=0.000000, train_total=0.485450, lr=0.0009623, eta_sec=46
+2026-04-06 17:30:19,434 - INFO - [Eval @ Epoch 10/40] test_loss=0.455941, test_acc=0.7466, FAR=0.0080, FDR=0.9992
+2026-04-06 17:30:19,434 - INFO - [Epoch 10/40] train_cls=0.473861, train_transfer=0.724308, train_adv=0.000000, train_total=0.489144, lr=0.0008550, eta_sec=31
+2026-04-06 17:30:23,584 - INFO - [Eval @ Epoch 15/40] test_loss=0.484842, test_acc=0.7881, FAR=0.0080, FDR=0.9998
+2026-04-06 17:30:23,585 - INFO - [Epoch 15/40] train_cls=0.363485, train_transfer=0.716334, train_adv=0.000000, train_total=0.398091, lr=0.0006944, eta_sec=24
+2026-04-06 17:30:27,874 - INFO - [Eval @ Epoch 20/40] test_loss=0.391054, test_acc=0.8025, FAR=0.0080, FDR=0.9990
+2026-04-06 17:30:27,875 - INFO - [Epoch 20/40] train_cls=0.390719, train_transfer=0.701769, train_adv=0.000000, train_total=0.441608, lr=0.0005050, eta_sec=19
+2026-04-06 17:30:32,352 - INFO - [Eval @ Epoch 25/40] test_loss=0.422630, test_acc=0.7995, FAR=0.0080, FDR=0.9996
+2026-04-06 17:30:32,352 - INFO - [Epoch 25/40] train_cls=0.346402, train_transfer=0.688697, train_adv=0.000000, train_total=0.379137, lr=0.0003156, eta_sec=14
+2026-04-06 17:30:36,770 - INFO - [Eval @ Epoch 30/40] test_loss=0.344975, test_acc=0.8673, FAR=0.0080, FDR=0.9998
+2026-04-06 17:30:36,771 - INFO - [Epoch 30/40] train_cls=0.344395, train_transfer=0.686125, train_adv=0.000000, train_total=0.359860, lr=0.0001550, eta_sec=9
+2026-04-06 17:30:41,122 - INFO - [Eval @ Epoch 35/40] test_loss=0.539258, test_acc=0.7835, FAR=0.0080, FDR=0.9998
+2026-04-06 17:30:41,122 - INFO - [Epoch 35/40] train_cls=0.365843, train_transfer=0.686719, train_adv=0.000000, train_total=0.365843, lr=0.0000477, eta_sec=4
+2026-04-06 17:30:45,529 - INFO - [Eval @ Epoch 40/40] test_loss=0.381406, test_acc=0.8356, FAR=0.0080, FDR=0.9998
+2026-04-06 17:30:45,530 - INFO - [Epoch 40/40] train_cls=0.300657, train_transfer=0.665890, train_adv=0.000000, train_total=0.300657, lr=0.0000100, eta_sec=0
+2026-04-06 17:30:45,537 - INFO - Training done for method=mcc
+2026-04-06 17:30:45,537 - INFO - Artifacts: baseline/private_runs/mcc

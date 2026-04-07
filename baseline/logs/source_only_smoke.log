@@ -1,0 +1,11 @@
+2026-04-06 00:29:47,564 - INFO - method=source_only, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 00:29:47,564 - INFO - epochs=2, batch_size=16, lr=0.001, min_lr=1e-05
+2026-04-06 00:29:53,804 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 00:29:53,804 - INFO - source_train=40, target_train=25975, target_test=6495
+2026-04-06 00:29:53,804 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 00:29:57,536 - INFO - [Eval @ Epoch 1/2] test_loss=2.069806, test_acc=0.0005, FAR=0.0006, FDR=0.0008
+2026-04-06 00:29:57,538 - INFO - [Epoch 1/2] train_cls=1.973069, train_transfer=0.000000, train_adv=0.000000, train_total=1.973069, lr=0.0005050, eta_sec=2
+2026-04-06 00:29:58,309 - INFO - [Eval @ Epoch 2/2] test_loss=2.104682, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:29:58,310 - INFO - [Epoch 2/2] train_cls=1.843588, train_transfer=0.000000, train_adv=0.000000, train_total=1.843588, lr=0.0000100, eta_sec=0
+2026-04-06 00:29:58,315 - INFO - Training done for method=source_only
+2026-04-06 00:29:58,315 - INFO - Artifacts: baseline/private_runs_smoke/source_only

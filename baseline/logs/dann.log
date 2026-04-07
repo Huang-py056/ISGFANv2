@@ -1,0 +1,25 @@
+2026-04-06 00:59:43,481 - INFO - method=dann, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 00:59:43,481 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 00:59:48,949 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 00:59:48,950 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 00:59:48,950 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 00:59:53,321 - INFO - [Eval @ Epoch 1/40] test_loss=0.586241, test_acc=0.7458, FAR=0.0080, FDR=0.9998
+2026-04-06 00:59:53,323 - INFO - [Epoch 1/40] train_cls=0.907776, train_transfer=0.000000, train_adv=0.695859, train_total=1.046948, lr=0.0009985, eta_sec=123
+2026-04-06 00:59:56,687 - INFO - [Eval @ Epoch 5/40] test_loss=0.612132, test_acc=0.7463, FAR=0.0080, FDR=0.9996
+2026-04-06 00:59:56,688 - INFO - [Epoch 5/40] train_cls=0.491676, train_transfer=0.000000, train_adv=0.695570, train_total=0.630790, lr=0.0009623, eta_sec=45
+2026-04-06 01:00:00,736 - INFO - [Eval @ Epoch 10/40] test_loss=0.697073, test_acc=0.5795, FAR=0.0074, FDR=0.9998
+2026-04-06 01:00:00,737 - INFO - [Epoch 10/40] train_cls=0.454783, train_transfer=0.000000, train_adv=0.693870, train_total=0.593557, lr=0.0008550, eta_sec=31
+2026-04-06 01:00:05,126 - INFO - [Eval @ Epoch 15/40] test_loss=0.406923, test_acc=0.8642, FAR=0.0080, FDR=0.9998
+2026-04-06 01:00:05,128 - INFO - [Epoch 15/40] train_cls=0.396920, train_transfer=0.000000, train_adv=0.693514, train_total=0.535623, lr=0.0006944, eta_sec=24
+2026-04-06 01:00:09,503 - INFO - [Eval @ Epoch 20/40] test_loss=0.765979, test_acc=0.5666, FAR=0.5515, FDR=0.9998
+2026-04-06 01:00:09,504 - INFO - [Epoch 20/40] train_cls=0.377942, train_transfer=0.000000, train_adv=0.693370, train_total=0.516616, lr=0.0005050, eta_sec=19
+2026-04-06 01:00:13,934 - INFO - [Eval @ Epoch 25/40] test_loss=0.339873, test_acc=0.8677, FAR=0.0074, FDR=0.9994
+2026-04-06 01:00:13,935 - INFO - [Epoch 25/40] train_cls=0.368878, train_transfer=0.000000, train_adv=0.693210, train_total=0.507520, lr=0.0003156, eta_sec=14
+2026-04-06 01:00:18,240 - INFO - [Eval @ Epoch 30/40] test_loss=0.374191, test_acc=0.8462, FAR=0.0080, FDR=0.9998
+2026-04-06 01:00:18,241 - INFO - [Epoch 30/40] train_cls=0.324013, train_transfer=0.000000, train_adv=0.693425, train_total=0.462698, lr=0.0001550, eta_sec=9
+2026-04-06 01:00:22,489 - INFO - [Eval @ Epoch 35/40] test_loss=0.556766, test_acc=0.7892, FAR=0.0080, FDR=0.9998
+2026-04-06 01:00:22,501 - INFO - [Epoch 35/40] train_cls=0.309295, train_transfer=0.000000, train_adv=0.693207, train_total=0.447937, lr=0.0000477, eta_sec=4
+2026-04-06 01:00:26,651 - INFO - [Eval @ Epoch 40/40] test_loss=0.732125, test_acc=0.7096, FAR=0.0080, FDR=0.9998
+2026-04-06 01:00:26,651 - INFO - [Epoch 40/40] train_cls=0.316691, train_transfer=0.000000, train_adv=0.693120, train_total=0.455316, lr=0.0000100, eta_sec=0
+2026-04-06 01:00:26,658 - INFO - Training done for method=dann
+2026-04-06 01:00:26,658 - INFO - Artifacts: baseline/private_runs/dann

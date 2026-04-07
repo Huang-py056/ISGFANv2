@@ -1,0 +1,243 @@
+nohup: ignoring input
+Using GPU 0, epochs=40, batch_size=32, max_steps=80
+==============================================================
+[START] source_only
+2026-04-06 00:59:05,512 - INFO - method=source_only, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 00:59:05,512 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 00:59:10,984 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 00:59:10,984 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 00:59:10,984 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 00:59:15,038 - INFO - [Eval @ Epoch 1/40] test_loss=0.606927, test_acc=0.7433, FAR=0.0080, FDR=0.9990
+2026-04-06 00:59:15,040 - INFO - [Epoch 1/40] train_cls=0.907420, train_transfer=0.000000, train_adv=0.000000, train_total=0.907420, lr=0.0009985, eta_sec=114
+2026-04-06 00:59:17,695 - INFO - [Eval @ Epoch 5/40] test_loss=0.579138, test_acc=0.6673, FAR=0.0080, FDR=0.9996
+2026-04-06 00:59:17,695 - INFO - [Epoch 5/40] train_cls=0.484652, train_transfer=0.000000, train_adv=0.000000, train_total=0.484652, lr=0.0009623, eta_sec=39
+2026-04-06 00:59:20,789 - INFO - [Eval @ Epoch 10/40] test_loss=0.523465, test_acc=0.7132, FAR=0.0080, FDR=0.9998
+2026-04-06 00:59:20,789 - INFO - [Epoch 10/40] train_cls=0.477934, train_transfer=0.000000, train_adv=0.000000, train_total=0.477934, lr=0.0008550, eta_sec=26
+2026-04-06 00:59:23,965 - INFO - [Eval @ Epoch 15/40] test_loss=0.428571, test_acc=0.8373, FAR=0.0080, FDR=0.9998
+2026-04-06 00:59:23,966 - INFO - [Epoch 15/40] train_cls=0.368971, train_transfer=0.000000, train_adv=0.000000, train_total=0.368971, lr=0.0006944, eta_sec=19
+2026-04-06 00:59:27,099 - INFO - [Eval @ Epoch 20/40] test_loss=0.586856, test_acc=0.7461, FAR=0.0080, FDR=0.9982
+2026-04-06 00:59:27,100 - INFO - [Epoch 20/40] train_cls=0.392592, train_transfer=0.000000, train_adv=0.000000, train_total=0.392592, lr=0.0005050, eta_sec=15
+2026-04-06 00:59:30,246 - INFO - [Eval @ Epoch 25/40] test_loss=0.512248, test_acc=0.8152, FAR=0.0086, FDR=0.9998
+2026-04-06 00:59:30,247 - INFO - [Epoch 25/40] train_cls=0.351646, train_transfer=0.000000, train_adv=0.000000, train_total=0.351646, lr=0.0003156, eta_sec=10
+2026-04-06 00:59:33,550 - INFO - [Eval @ Epoch 30/40] test_loss=0.427388, test_acc=0.8160, FAR=0.0080, FDR=0.9998
+2026-04-06 00:59:33,550 - INFO - [Epoch 30/40] train_cls=0.349121, train_transfer=0.000000, train_adv=0.000000, train_total=0.349121, lr=0.0001550, eta_sec=7
+2026-04-06 00:59:36,791 - INFO - [Eval @ Epoch 35/40] test_loss=0.426293, test_acc=0.8208, FAR=0.0080, FDR=0.9998
+2026-04-06 00:59:36,791 - INFO - [Epoch 35/40] train_cls=0.358122, train_transfer=0.000000, train_adv=0.000000, train_total=0.358122, lr=0.0000477, eta_sec=3
+2026-04-06 00:59:39,999 - INFO - [Eval @ Epoch 40/40] test_loss=0.377218, test_acc=0.8328, FAR=0.0080, FDR=0.9996
+2026-04-06 00:59:40,000 - INFO - [Epoch 40/40] train_cls=0.300824, train_transfer=0.000000, train_adv=0.000000, train_total=0.300824, lr=0.0000100, eta_sec=0
+2026-04-06 00:59:40,007 - INFO - Training done for method=source_only
+2026-04-06 00:59:40,008 - INFO - Artifacts: baseline/private_runs/source_only
+[DONE]  source_only -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/source_only.log
+==============================================================
+
+==============================================================
+[START] dann
+2026-04-06 00:59:43,481 - INFO - method=dann, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 00:59:43,481 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 00:59:48,949 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 00:59:48,950 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 00:59:48,950 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 00:59:53,321 - INFO - [Eval @ Epoch 1/40] test_loss=0.586241, test_acc=0.7458, FAR=0.0080, FDR=0.9998
+2026-04-06 00:59:53,323 - INFO - [Epoch 1/40] train_cls=0.907776, train_transfer=0.000000, train_adv=0.695859, train_total=1.046948, lr=0.0009985, eta_sec=123
+2026-04-06 00:59:56,687 - INFO - [Eval @ Epoch 5/40] test_loss=0.612132, test_acc=0.7463, FAR=0.0080, FDR=0.9996
+2026-04-06 00:59:56,688 - INFO - [Epoch 5/40] train_cls=0.491676, train_transfer=0.000000, train_adv=0.695570, train_total=0.630790, lr=0.0009623, eta_sec=45
+2026-04-06 01:00:00,736 - INFO - [Eval @ Epoch 10/40] test_loss=0.697073, test_acc=0.5795, FAR=0.0074, FDR=0.9998
+2026-04-06 01:00:00,737 - INFO - [Epoch 10/40] train_cls=0.454783, train_transfer=0.000000, train_adv=0.693870, train_total=0.593557, lr=0.0008550, eta_sec=31
+2026-04-06 01:00:05,126 - INFO - [Eval @ Epoch 15/40] test_loss=0.406923, test_acc=0.8642, FAR=0.0080, FDR=0.9998
+2026-04-06 01:00:05,128 - INFO - [Epoch 15/40] train_cls=0.396920, train_transfer=0.000000, train_adv=0.693514, train_total=0.535623, lr=0.0006944, eta_sec=24
+2026-04-06 01:00:09,503 - INFO - [Eval @ Epoch 20/40] test_loss=0.765979, test_acc=0.5666, FAR=0.5515, FDR=0.9998
+2026-04-06 01:00:09,504 - INFO - [Epoch 20/40] train_cls=0.377942, train_transfer=0.000000, train_adv=0.693370, train_total=0.516616, lr=0.0005050, eta_sec=19
+2026-04-06 01:00:13,934 - INFO - [Eval @ Epoch 25/40] test_loss=0.339873, test_acc=0.8677, FAR=0.0074, FDR=0.9994
+2026-04-06 01:00:13,935 - INFO - [Epoch 25/40] train_cls=0.368878, train_transfer=0.000000, train_adv=0.693210, train_total=0.507520, lr=0.0003156, eta_sec=14
+2026-04-06 01:00:18,240 - INFO - [Eval @ Epoch 30/40] test_loss=0.374191, test_acc=0.8462, FAR=0.0080, FDR=0.9998
+2026-04-06 01:00:18,241 - INFO - [Epoch 30/40] train_cls=0.324013, train_transfer=0.000000, train_adv=0.693425, train_total=0.462698, lr=0.0001550, eta_sec=9
+2026-04-06 01:00:22,489 - INFO - [Eval @ Epoch 35/40] test_loss=0.556766, test_acc=0.7892, FAR=0.0080, FDR=0.9998
+2026-04-06 01:00:22,501 - INFO - [Epoch 35/40] train_cls=0.309295, train_transfer=0.000000, train_adv=0.693207, train_total=0.447937, lr=0.0000477, eta_sec=4
+2026-04-06 01:00:26,651 - INFO - [Eval @ Epoch 40/40] test_loss=0.732125, test_acc=0.7096, FAR=0.0080, FDR=0.9998
+2026-04-06 01:00:26,651 - INFO - [Epoch 40/40] train_cls=0.316691, train_transfer=0.000000, train_adv=0.693120, train_total=0.455316, lr=0.0000100, eta_sec=0
+2026-04-06 01:00:26,658 - INFO - Training done for method=dann
+2026-04-06 01:00:26,658 - INFO - Artifacts: baseline/private_runs/dann
+[DONE]  dann -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/dann.log
+==============================================================
+
+==============================================================
+[START] cdan
+2026-04-06 01:00:29,937 - INFO - method=cdan, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 01:00:29,938 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 01:00:35,436 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 01:00:35,436 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 01:00:35,437 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 01:00:39,336 - INFO - [Eval @ Epoch 1/40] test_loss=0.951075, test_acc=0.5587, FAR=0.7471, FDR=0.9951
+2026-04-06 01:00:39,339 - INFO - [Epoch 1/40] train_cls=0.899895, train_transfer=0.000000, train_adv=0.695887, train_total=1.039072, lr=0.0009985, eta_sec=110
+2026-04-06 01:00:43,053 - INFO - [Eval @ Epoch 5/40] test_loss=0.539536, test_acc=0.6796, FAR=0.0080, FDR=0.9996
+2026-04-06 01:00:43,056 - INFO - [Epoch 5/40] train_cls=0.486494, train_transfer=0.000000, train_adv=0.696236, train_total=0.625741, lr=0.0009623, eta_sec=45
+2026-04-06 01:00:47,328 - INFO - [Eval @ Epoch 10/40] test_loss=0.406801, test_acc=0.8491, FAR=0.0074, FDR=0.9990
+2026-04-06 01:00:47,331 - INFO - [Epoch 10/40] train_cls=0.428321, train_transfer=0.000000, train_adv=0.694981, train_total=0.567318, lr=0.0008550, eta_sec=32
+2026-04-06 01:00:51,586 - INFO - [Eval @ Epoch 15/40] test_loss=0.414449, test_acc=0.8750, FAR=0.0080, FDR=0.9998
+2026-04-06 01:00:51,590 - INFO - [Epoch 15/40] train_cls=0.423897, train_transfer=0.000000, train_adv=0.693662, train_total=0.562629, lr=0.0006944, eta_sec=25
+2026-04-06 01:00:56,349 - INFO - [Eval @ Epoch 20/40] test_loss=0.737667, test_acc=0.6223, FAR=0.0105, FDR=0.9998
+2026-04-06 01:00:56,349 - INFO - [Epoch 20/40] train_cls=0.442916, train_transfer=0.000000, train_adv=0.694915, train_total=0.581899, lr=0.0005050, eta_sec=19
+2026-04-06 01:01:00,710 - INFO - [Eval @ Epoch 25/40] test_loss=1.452720, test_acc=0.5242, FAR=0.0099, FDR=0.9998
+2026-04-06 01:01:00,710 - INFO - [Epoch 25/40] train_cls=0.375272, train_transfer=0.000000, train_adv=0.692536, train_total=0.513779, lr=0.0003156, eta_sec=14
+2026-04-06 01:01:05,007 - INFO - [Eval @ Epoch 30/40] test_loss=2.356409, test_acc=0.3170, FAR=0.7421, FDR=0.9998
+2026-04-06 01:01:05,007 - INFO - [Epoch 30/40] train_cls=0.316045, train_transfer=0.000000, train_adv=0.693089, train_total=0.454663, lr=0.0001550, eta_sec=9
+2026-04-06 01:01:10,046 - INFO - [Eval @ Epoch 35/40] test_loss=1.233796, test_acc=0.5803, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:10,046 - INFO - [Epoch 35/40] train_cls=0.328681, train_transfer=0.000000, train_adv=0.693182, train_total=0.467318, lr=0.0000477, eta_sec=4
+2026-04-06 01:01:14,615 - INFO - [Eval @ Epoch 40/40] test_loss=1.358037, test_acc=0.4245, FAR=0.4843, FDR=0.9998
+2026-04-06 01:01:14,615 - INFO - [Epoch 40/40] train_cls=0.296558, train_transfer=0.000000, train_adv=0.693271, train_total=0.435213, lr=0.0000100, eta_sec=0
+2026-04-06 01:01:14,645 - INFO - Training done for method=cdan
+2026-04-06 01:01:14,645 - INFO - Artifacts: baseline/private_runs/cdan
+[DONE]  cdan -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/cdan.log
+==============================================================
+
+==============================================================
+[START] deepcoral
+2026-04-06 01:01:17,680 - INFO - method=deepcoral, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 01:01:17,680 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 01:01:23,198 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 01:01:23,199 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 01:01:23,199 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 01:01:27,244 - INFO - [Eval @ Epoch 1/40] test_loss=0.630091, test_acc=0.7433, FAR=0.0080, FDR=0.9988
+2026-04-06 01:01:27,245 - INFO - [Epoch 1/40] train_cls=0.909583, train_transfer=0.000059, train_adv=0.000000, train_total=0.909642, lr=0.0009985, eta_sec=116
+2026-04-06 01:01:30,631 - INFO - [Eval @ Epoch 5/40] test_loss=0.446813, test_acc=0.8697, FAR=0.0080, FDR=0.9992
+2026-04-06 01:01:30,632 - INFO - [Epoch 5/40] train_cls=0.492274, train_transfer=0.000903, train_adv=0.000000, train_total=0.493177, lr=0.0009623, eta_sec=44
+2026-04-06 01:01:34,674 - INFO - [Eval @ Epoch 10/40] test_loss=0.518599, test_acc=0.7457, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:34,674 - INFO - [Epoch 10/40] train_cls=0.479004, train_transfer=0.001612, train_adv=0.000000, train_total=0.480616, lr=0.0008550, eta_sec=31
+2026-04-06 01:01:38,546 - INFO - [Eval @ Epoch 15/40] test_loss=0.558400, test_acc=0.7369, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:38,547 - INFO - [Epoch 15/40] train_cls=0.372616, train_transfer=0.000334, train_adv=0.000000, train_total=0.372951, lr=0.0006944, eta_sec=23
+2026-04-06 01:01:42,640 - INFO - [Eval @ Epoch 20/40] test_loss=0.534180, test_acc=0.7453, FAR=0.0080, FDR=0.9963
+2026-04-06 01:01:42,640 - INFO - [Epoch 20/40] train_cls=0.404066, train_transfer=0.002489, train_adv=0.000000, train_total=0.406554, lr=0.0005050, eta_sec=18
+2026-04-06 01:01:46,839 - INFO - [Eval @ Epoch 25/40] test_loss=0.418659, test_acc=0.8282, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:46,840 - INFO - [Epoch 25/40] train_cls=0.363330, train_transfer=0.007898, train_adv=0.000000, train_total=0.371228, lr=0.0003156, eta_sec=13
+2026-04-06 01:01:50,778 - INFO - [Eval @ Epoch 30/40] test_loss=0.656848, test_acc=0.7121, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:50,779 - INFO - [Epoch 30/40] train_cls=0.366028, train_transfer=0.002437, train_adv=0.000000, train_total=0.368465, lr=0.0001550, eta_sec=8
+2026-04-06 01:01:54,982 - INFO - [Eval @ Epoch 35/40] test_loss=0.885982, test_acc=0.6516, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:54,982 - INFO - [Epoch 35/40] train_cls=0.386822, train_transfer=0.004446, train_adv=0.000000, train_total=0.391268, lr=0.0000477, eta_sec=4
+2026-04-06 01:01:58,970 - INFO - [Eval @ Epoch 40/40] test_loss=0.578692, test_acc=0.7580, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:58,971 - INFO - [Epoch 40/40] train_cls=0.324192, train_transfer=0.002774, train_adv=0.000000, train_total=0.326966, lr=0.0000100, eta_sec=0
+2026-04-06 01:01:58,976 - INFO - Training done for method=deepcoral
+2026-04-06 01:01:58,976 - INFO - Artifacts: baseline/private_runs/deepcoral
+[DONE]  deepcoral -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/deepcoral.log
+==============================================================
+
+==============================================================
+[START] mmd
+2026-04-06 01:02:01,875 - INFO - method=mmd, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 01:02:01,876 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 01:02:07,558 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 01:02:07,558 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 01:02:07,558 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 01:02:12,750 - INFO - [Eval @ Epoch 1/40] test_loss=1.083785, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:02:12,752 - INFO - [Epoch 1/40] train_cls=1.168549, train_transfer=0.262019, train_adv=0.000000, train_total=1.430569, lr=0.0009985, eta_sec=158
+2026-04-06 01:02:18,180 - INFO - [Eval @ Epoch 5/40] test_loss=1.075230, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:02:18,181 - INFO - [Epoch 5/40] train_cls=1.084758, train_transfer=0.104898, train_adv=0.000000, train_total=1.189656, lr=0.0009623, eta_sec=66
+2026-04-06 01:02:24,869 - INFO - [Eval @ Epoch 10/40] test_loss=1.073255, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:02:24,869 - INFO - [Epoch 10/40] train_cls=1.076810, train_transfer=0.096545, train_adv=0.000000, train_total=1.173355, lr=0.0008550, eta_sec=48
+2026-04-06 01:02:31,389 - INFO - [Eval @ Epoch 15/40] test_loss=1.074826, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:02:31,389 - INFO - [Epoch 15/40] train_cls=1.065477, train_transfer=0.102489, train_adv=0.000000, train_total=1.167966, lr=0.0006944, eta_sec=37
+2026-04-06 01:02:37,898 - INFO - [Eval @ Epoch 20/40] test_loss=1.071167, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:02:37,898 - INFO - [Epoch 20/40] train_cls=1.057801, train_transfer=0.105608, train_adv=0.000000, train_total=1.163409, lr=0.0005050, eta_sec=29
+2026-04-06 01:02:44,844 - INFO - [Eval @ Epoch 25/40] test_loss=1.067245, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:02:44,845 - INFO - [Epoch 25/40] train_cls=1.067216, train_transfer=0.066999, train_adv=0.000000, train_total=1.134215, lr=0.0003156, eta_sec=21
+2026-04-06 01:02:52,625 - INFO - [Eval @ Epoch 30/40] test_loss=1.066927, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:02:52,625 - INFO - [Epoch 30/40] train_cls=1.074579, train_transfer=0.055499, train_adv=0.000000, train_total=1.130077, lr=0.0001550, eta_sec=14
+2026-04-06 01:02:59,048 - INFO - [Eval @ Epoch 35/40] test_loss=1.067223, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:02:59,049 - INFO - [Epoch 35/40] train_cls=1.074661, train_transfer=0.058948, train_adv=0.000000, train_total=1.133609, lr=0.0000477, eta_sec=7
+2026-04-06 01:03:05,510 - INFO - [Eval @ Epoch 40/40] test_loss=1.066747, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:03:05,510 - INFO - [Epoch 40/40] train_cls=1.076584, train_transfer=0.026122, train_adv=0.000000, train_total=1.102706, lr=0.0000100, eta_sec=0
+2026-04-06 01:03:05,515 - INFO - Training done for method=mmd
+2026-04-06 01:03:05,515 - INFO - Artifacts: baseline/private_runs/mmd
+[DONE]  mmd -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/mmd.log
+==============================================================
+
+==============================================================
+[START] jan
+2026-04-06 01:03:08,595 - INFO - method=jan, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 01:03:08,595 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 01:03:14,080 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 01:03:14,080 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 01:03:14,080 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 01:03:19,292 - INFO - [Eval @ Epoch 1/40] test_loss=1.074573, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:03:19,293 - INFO - [Epoch 1/40] train_cls=1.167615, train_transfer=0.248784, train_adv=0.000000, train_total=1.416399, lr=0.0009985, eta_sec=159
+2026-04-06 01:03:25,197 - INFO - [Eval @ Epoch 5/40] test_loss=1.076714, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:03:25,197 - INFO - [Epoch 5/40] train_cls=1.087125, train_transfer=0.103183, train_adv=0.000000, train_total=1.190308, lr=0.0009623, eta_sec=69
+2026-04-06 01:03:32,138 - INFO - [Eval @ Epoch 10/40] test_loss=1.079863, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:03:32,139 - INFO - [Epoch 10/40] train_cls=1.077840, train_transfer=0.117764, train_adv=0.000000, train_total=1.195604, lr=0.0008550, eta_sec=50
+2026-04-06 01:03:39,266 - INFO - [Eval @ Epoch 15/40] test_loss=1.074970, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:03:39,267 - INFO - [Epoch 15/40] train_cls=1.069655, train_transfer=0.126222, train_adv=0.000000, train_total=1.195877, lr=0.0006944, eta_sec=40
+2026-04-06 01:03:45,927 - INFO - [Eval @ Epoch 20/40] test_loss=1.078947, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:03:45,928 - INFO - [Epoch 20/40] train_cls=1.061206, train_transfer=0.129453, train_adv=0.000000, train_total=1.190659, lr=0.0005050, eta_sec=30
+2026-04-06 01:03:52,727 - INFO - [Eval @ Epoch 25/40] test_loss=1.072576, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:03:52,727 - INFO - [Epoch 25/40] train_cls=1.070568, train_transfer=0.087294, train_adv=0.000000, train_total=1.157862, lr=0.0003156, eta_sec=22
+2026-04-06 01:04:00,172 - INFO - [Eval @ Epoch 30/40] test_loss=1.073724, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:04:00,173 - INFO - [Epoch 30/40] train_cls=1.079278, train_transfer=0.046513, train_adv=0.000000, train_total=1.125791, lr=0.0001550, eta_sec=14
+2026-04-06 01:04:07,641 - INFO - [Eval @ Epoch 35/40] test_loss=1.072412, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:04:07,642 - INFO - [Epoch 35/40] train_cls=1.078782, train_transfer=0.047175, train_adv=0.000000, train_total=1.125956, lr=0.0000477, eta_sec=7
+2026-04-06 01:04:15,542 - INFO - [Eval @ Epoch 40/40] test_loss=1.071399, test_acc=0.4958, FAR=1.0000, FDR=1.0000
+2026-04-06 01:04:15,543 - INFO - [Epoch 40/40] train_cls=1.081622, train_transfer=0.031785, train_adv=0.000000, train_total=1.113407, lr=0.0000100, eta_sec=0
+2026-04-06 01:04:15,550 - INFO - Training done for method=jan
+2026-04-06 01:04:15,550 - INFO - Artifacts: baseline/private_runs/jan
+[DONE]  jan -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/jan.log
+==============================================================
+
+==============================================================
+[START] entropy_min
+2026-04-06 01:04:18,639 - INFO - method=entropy_min, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 01:04:18,639 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 01:04:24,336 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 01:04:24,336 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 01:04:24,336 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 01:04:28,387 - INFO - [Eval @ Epoch 1/40] test_loss=0.785868, test_acc=0.6902, FAR=0.2209, FDR=0.9971
+2026-04-06 01:04:28,388 - INFO - [Epoch 1/40] train_cls=1.149462, train_transfer=0.668267, train_adv=0.000000, train_total=1.817730, lr=0.0009985, eta_sec=115
+2026-04-06 01:04:31,359 - INFO - [Eval @ Epoch 5/40] test_loss=0.397242, test_acc=0.8176, FAR=0.0074, FDR=0.9992
+2026-04-06 01:04:31,360 - INFO - [Epoch 5/40] train_cls=0.551297, train_transfer=0.347229, train_adv=0.000000, train_total=0.898526, lr=0.0009623, eta_sec=41
+2026-04-06 01:04:35,272 - INFO - [Eval @ Epoch 10/40] test_loss=0.463093, test_acc=0.7704, FAR=0.0105, FDR=0.9992
+2026-04-06 01:04:35,273 - INFO - [Epoch 10/40] train_cls=0.568937, train_transfer=0.300533, train_adv=0.000000, train_total=0.869470, lr=0.0008550, eta_sec=29
+2026-04-06 01:04:39,270 - INFO - [Eval @ Epoch 15/40] test_loss=0.460171, test_acc=0.8168, FAR=0.0080, FDR=0.9996
+2026-04-06 01:04:39,271 - INFO - [Epoch 15/40] train_cls=0.424786, train_transfer=0.267984, train_adv=0.000000, train_total=0.692770, lr=0.0006944, eta_sec=23
+2026-04-06 01:04:43,273 - INFO - [Eval @ Epoch 20/40] test_loss=0.361915, test_acc=0.8696, FAR=0.0080, FDR=0.9992
+2026-04-06 01:04:43,274 - INFO - [Epoch 20/40] train_cls=0.520434, train_transfer=0.254301, train_adv=0.000000, train_total=0.774734, lr=0.0005050, eta_sec=17
+2026-04-06 01:04:47,328 - INFO - [Eval @ Epoch 25/40] test_loss=0.508368, test_acc=0.8334, FAR=0.0080, FDR=0.9998
+2026-04-06 01:04:47,328 - INFO - [Epoch 25/40] train_cls=0.430180, train_transfer=0.224122, train_adv=0.000000, train_total=0.654302, lr=0.0003156, eta_sec=13
+2026-04-06 01:04:51,319 - INFO - [Eval @ Epoch 30/40] test_loss=0.420510, test_acc=0.8654, FAR=0.0080, FDR=0.9996
+2026-04-06 01:04:51,319 - INFO - [Epoch 30/40] train_cls=0.465950, train_transfer=0.219333, train_adv=0.000000, train_total=0.685283, lr=0.0001550, eta_sec=8
+2026-04-06 01:04:55,248 - INFO - [Eval @ Epoch 35/40] test_loss=0.681476, test_acc=0.8196, FAR=0.0080, FDR=0.9998
+2026-04-06 01:04:55,248 - INFO - [Epoch 35/40] train_cls=0.471966, train_transfer=0.205818, train_adv=0.000000, train_total=0.677784, lr=0.0000477, eta_sec=4
+2026-04-06 01:04:59,127 - INFO - [Eval @ Epoch 40/40] test_loss=0.486387, test_acc=0.8681, FAR=0.0080, FDR=0.9996
+2026-04-06 01:04:59,127 - INFO - [Epoch 40/40] train_cls=0.393449, train_transfer=0.200830, train_adv=0.000000, train_total=0.594279, lr=0.0000100, eta_sec=0
+2026-04-06 01:04:59,132 - INFO - Training done for method=entropy_min
+2026-04-06 01:04:59,132 - INFO - Artifacts: baseline/private_runs/entropy_min
+[DONE]  entropy_min -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/entropy_min.log
+==============================================================
+
+==============================================================
+[START] mcc
+2026-04-06 01:05:02,124 - INFO - method=mcc, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 01:05:02,124 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 01:05:07,563 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 01:05:07,563 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 01:05:07,563 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 01:05:11,800 - INFO - [Eval @ Epoch 1/40] test_loss=0.570474, test_acc=0.7433, FAR=0.0080, FDR=0.9992
+2026-04-06 01:05:11,801 - INFO - [Epoch 1/40] train_cls=0.891375, train_transfer=0.836927, train_adv=0.000000, train_total=1.728302, lr=0.0009985, eta_sec=117
+2026-04-06 01:05:14,909 - INFO - [Eval @ Epoch 5/40] test_loss=0.635434, test_acc=0.6322, FAR=0.0080, FDR=0.9998
+2026-04-06 01:05:14,909 - INFO - [Epoch 5/40] train_cls=0.468743, train_transfer=0.718548, train_adv=0.000000, train_total=1.187291, lr=0.0009623, eta_sec=42
+2026-04-06 01:05:18,841 - INFO - [Eval @ Epoch 10/40] test_loss=1.024800, test_acc=0.5169, FAR=0.0487, FDR=0.9998
+2026-04-06 01:05:18,841 - INFO - [Epoch 10/40] train_cls=0.468160, train_transfer=0.711558, train_adv=0.000000, train_total=1.179718, lr=0.0008550, eta_sec=30
+2026-04-06 01:05:23,105 - INFO - [Eval @ Epoch 15/40] test_loss=1.209011, test_acc=0.5717, FAR=0.0080, FDR=0.9998
+2026-04-06 01:05:23,105 - INFO - [Epoch 15/40] train_cls=0.353264, train_transfer=0.699775, train_adv=0.000000, train_total=1.053038, lr=0.0006944, eta_sec=23
+2026-04-06 01:05:27,256 - INFO - [Eval @ Epoch 20/40] test_loss=0.345861, test_acc=0.8716, FAR=0.0080, FDR=0.9998
+2026-04-06 01:05:27,257 - INFO - [Epoch 20/40] train_cls=0.404461, train_transfer=0.688472, train_adv=0.000000, train_total=1.092933, lr=0.0005050, eta_sec=18
+2026-04-06 01:05:31,378 - INFO - [Eval @ Epoch 25/40] test_loss=1.834485, test_acc=0.3460, FAR=0.7477, FDR=0.9998
+2026-04-06 01:05:31,379 - INFO - [Epoch 25/40] train_cls=0.356357, train_transfer=0.679256, train_adv=0.000000, train_total=1.035614, lr=0.0003156, eta_sec=13
+2026-04-06 01:05:35,476 - INFO - [Eval @ Epoch 30/40] test_loss=3.039781, test_acc=0.3169, FAR=0.7378, FDR=0.9998
+2026-04-06 01:05:35,476 - INFO - [Epoch 30/40] train_cls=0.345258, train_transfer=0.669933, train_adv=0.000000, train_total=1.015191, lr=0.0001550, eta_sec=8
+2026-04-06 01:05:39,702 - INFO - [Eval @ Epoch 35/40] test_loss=4.679410, test_acc=0.3121, FAR=0.7551, FDR=0.9998
+2026-04-06 01:05:39,702 - INFO - [Epoch 35/40] train_cls=0.380508, train_transfer=0.673239, train_adv=0.000000, train_total=1.053747, lr=0.0000477, eta_sec=4
+2026-04-06 01:05:43,845 - INFO - [Eval @ Epoch 40/40] test_loss=2.844785, test_acc=0.3162, FAR=0.7397, FDR=0.9998
+2026-04-06 01:05:43,845 - INFO - [Epoch 40/40] train_cls=0.314126, train_transfer=0.651377, train_adv=0.000000, train_total=0.965503, lr=0.0000100, eta_sec=0
+2026-04-06 01:05:43,851 - INFO - Training done for method=mcc
+2026-04-06 01:05:43,851 - INFO - Artifacts: baseline/private_runs/mcc
+[DONE]  mcc -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/mcc.log
+==============================================================
+
+All baselines finished. Logs are under /data2/ranran/chenghaoyue/ISGFAN/baseline/logs

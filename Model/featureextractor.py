@@ -43,23 +43,31 @@ class GlobalLocalFusionAttention1D(nn.Module):
 
 
 class TransformerFFNAttention1D(nn.Module):
-    def __init__(self, dim, heads=4, attn_dropout=0.1, mlp_ratio=4, pooled_length=16):
+    def __init__(self, dim, heads=4, attn_dropout=0.1, mlp_ratio=4):
         super().__init__()
         hidden_dim = dim * mlp_ratio
-        self.norm1 = nn.LayerNorm(dim)
+
+        # Local branch: multi-scale depthwise conv for short-range inductive bias.
+        self.norm_local = nn.LayerNorm(dim)
         self.dwconv3 = nn.Conv1d(dim, dim, kernel_size=3, padding=1, groups=dim)
         self.dwconv5 = nn.Conv1d(dim, dim, kernel_size=5, padding=2, groups=dim)
-        self.dwconv7 = nn.Conv1d(dim, dim, kernel_size=7, padding=3, groups=dim)
-        self.mix_proj = nn.Conv1d(dim, dim, kernel_size=1)
-        self.channel_gate = nn.Sequential(
-            nn.Linear(dim, max(dim // 4, 8)),
-            nn.GELU(),
-            nn.Linear(max(dim // 4, 8), dim),
-            nn.Sigmoid(),
+        self.local_proj = nn.Conv1d(dim, dim, kernel_size=1)
+
+        # Global branch: explicit token interaction via MHA.
+        self.norm_mha = nn.LayerNorm(dim)
+        self.mha = nn.MultiheadAttention(
+            embed_dim=dim,
+            num_heads=heads,
+            dropout=attn_dropout,
+            batch_first=True,
         )
+
+        # Learnable fusion gate balances local/global contributions during training.
+        self.fuse_gate = nn.Parameter(torch.tensor(0.0))
         self.out_proj = nn.Linear(dim, dim)
         self.dropout1 = nn.Dropout(attn_dropout)
         self.layer_scale1 = nn.Parameter(torch.ones(dim) * 1e-4)
+
         self.norm2 = nn.LayerNorm(dim)
         self.ffn = nn.Sequential(
             nn.Linear(dim, hidden_dim),
@@ -71,13 +79,16 @@ class TransformerFFNAttention1D(nn.Module):
         self.layer_scale2 = nn.Parameter(torch.ones(dim) * 1e-4)
 
     def forward(self, x):
-        h = self.norm1(x).transpose(1, 2)
-        mixed = (self.dwconv3(h) + self.dwconv5(h) + self.dwconv7(h)) / 3.0
-        mixed = self.mix_proj(F.gelu(mixed))
-        channel_token = mixed.mean(dim=-1)
-        channel_gate = self.channel_gate(channel_token).unsqueeze(-1)
-        attn_like = (mixed * channel_gate).transpose(1, 2)
-        x = x + self.dropout1(self.out_proj(attn_like)) * self.layer_scale1.unsqueeze(0).unsqueeze(0)
+        local_h = self.norm_local(x).transpose(1, 2)
+        local_feat = (self.dwconv3(local_h) + self.dwconv5(local_h)) * 0.5
+        local_feat = self.local_proj(F.gelu(local_feat)).transpose(1, 2)
+
+        global_h = self.norm_mha(x)
+        global_feat, _ = self.mha(global_h, global_h, global_h, need_weights=False)
+
+        alpha = torch.sigmoid(self.fuse_gate)
+        mixed = alpha * local_feat + (1.0 - alpha) * global_feat
+        x = x + self.dropout1(self.out_proj(mixed)) * self.layer_scale1.unsqueeze(0).unsqueeze(0)
         x = x + self.ffn(self.norm2(x)) * self.layer_scale2.unsqueeze(0).unsqueeze(0)
         return x
 

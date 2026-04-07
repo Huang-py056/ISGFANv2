@@ -1,0 +1,25 @@
+2026-04-06 01:01:17,680 - INFO - method=deepcoral, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 01:01:17,680 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 01:01:23,198 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 01:01:23,199 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 01:01:23,199 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 01:01:27,244 - INFO - [Eval @ Epoch 1/40] test_loss=0.630091, test_acc=0.7433, FAR=0.0080, FDR=0.9988
+2026-04-06 01:01:27,245 - INFO - [Epoch 1/40] train_cls=0.909583, train_transfer=0.000059, train_adv=0.000000, train_total=0.909642, lr=0.0009985, eta_sec=116
+2026-04-06 01:01:30,631 - INFO - [Eval @ Epoch 5/40] test_loss=0.446813, test_acc=0.8697, FAR=0.0080, FDR=0.9992
+2026-04-06 01:01:30,632 - INFO - [Epoch 5/40] train_cls=0.492274, train_transfer=0.000903, train_adv=0.000000, train_total=0.493177, lr=0.0009623, eta_sec=44
+2026-04-06 01:01:34,674 - INFO - [Eval @ Epoch 10/40] test_loss=0.518599, test_acc=0.7457, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:34,674 - INFO - [Epoch 10/40] train_cls=0.479004, train_transfer=0.001612, train_adv=0.000000, train_total=0.480616, lr=0.0008550, eta_sec=31
+2026-04-06 01:01:38,546 - INFO - [Eval @ Epoch 15/40] test_loss=0.558400, test_acc=0.7369, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:38,547 - INFO - [Epoch 15/40] train_cls=0.372616, train_transfer=0.000334, train_adv=0.000000, train_total=0.372951, lr=0.0006944, eta_sec=23
+2026-04-06 01:01:42,640 - INFO - [Eval @ Epoch 20/40] test_loss=0.534180, test_acc=0.7453, FAR=0.0080, FDR=0.9963
+2026-04-06 01:01:42,640 - INFO - [Epoch 20/40] train_cls=0.404066, train_transfer=0.002489, train_adv=0.000000, train_total=0.406554, lr=0.0005050, eta_sec=18
+2026-04-06 01:01:46,839 - INFO - [Eval @ Epoch 25/40] test_loss=0.418659, test_acc=0.8282, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:46,840 - INFO - [Epoch 25/40] train_cls=0.363330, train_transfer=0.007898, train_adv=0.000000, train_total=0.371228, lr=0.0003156, eta_sec=13
+2026-04-06 01:01:50,778 - INFO - [Eval @ Epoch 30/40] test_loss=0.656848, test_acc=0.7121, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:50,779 - INFO - [Epoch 30/40] train_cls=0.366028, train_transfer=0.002437, train_adv=0.000000, train_total=0.368465, lr=0.0001550, eta_sec=8
+2026-04-06 01:01:54,982 - INFO - [Eval @ Epoch 35/40] test_loss=0.885982, test_acc=0.6516, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:54,982 - INFO - [Epoch 35/40] train_cls=0.386822, train_transfer=0.004446, train_adv=0.000000, train_total=0.391268, lr=0.0000477, eta_sec=4
+2026-04-06 01:01:58,970 - INFO - [Eval @ Epoch 40/40] test_loss=0.578692, test_acc=0.7580, FAR=0.0080, FDR=0.9998
+2026-04-06 01:01:58,971 - INFO - [Epoch 40/40] train_cls=0.324192, train_transfer=0.002774, train_adv=0.000000, train_total=0.326966, lr=0.0000100, eta_sec=0
+2026-04-06 01:01:58,976 - INFO - Training done for method=deepcoral
+2026-04-06 01:01:58,976 - INFO - Artifacts: baseline/private_runs/deepcoral

@@ -1,0 +1,25 @@
+2026-04-06 01:04:18,639 - INFO - method=entropy_min, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 01:04:18,639 - INFO - epochs=40, batch_size=32, max_steps_per_epoch=80, lr=0.001, min_lr=1e-05, source_use_dso=False, target_use_dso=False
+2026-04-06 01:04:24,336 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 01:04:24,336 - INFO - source_train=25975, target_train=25975, target_test=6495
+2026-04-06 01:04:24,336 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 01:04:28,387 - INFO - [Eval @ Epoch 1/40] test_loss=0.785868, test_acc=0.6902, FAR=0.2209, FDR=0.9971
+2026-04-06 01:04:28,388 - INFO - [Epoch 1/40] train_cls=1.149462, train_transfer=0.668267, train_adv=0.000000, train_total=1.817730, lr=0.0009985, eta_sec=115
+2026-04-06 01:04:31,359 - INFO - [Eval @ Epoch 5/40] test_loss=0.397242, test_acc=0.8176, FAR=0.0074, FDR=0.9992
+2026-04-06 01:04:31,360 - INFO - [Epoch 5/40] train_cls=0.551297, train_transfer=0.347229, train_adv=0.000000, train_total=0.898526, lr=0.0009623, eta_sec=41
+2026-04-06 01:04:35,272 - INFO - [Eval @ Epoch 10/40] test_loss=0.463093, test_acc=0.7704, FAR=0.0105, FDR=0.9992
+2026-04-06 01:04:35,273 - INFO - [Epoch 10/40] train_cls=0.568937, train_transfer=0.300533, train_adv=0.000000, train_total=0.869470, lr=0.0008550, eta_sec=29
+2026-04-06 01:04:39,270 - INFO - [Eval @ Epoch 15/40] test_loss=0.460171, test_acc=0.8168, FAR=0.0080, FDR=0.9996
+2026-04-06 01:04:39,271 - INFO - [Epoch 15/40] train_cls=0.424786, train_transfer=0.267984, train_adv=0.000000, train_total=0.692770, lr=0.0006944, eta_sec=23
+2026-04-06 01:04:43,273 - INFO - [Eval @ Epoch 20/40] test_loss=0.361915, test_acc=0.8696, FAR=0.0080, FDR=0.9992
+2026-04-06 01:04:43,274 - INFO - [Epoch 20/40] train_cls=0.520434, train_transfer=0.254301, train_adv=0.000000, train_total=0.774734, lr=0.0005050, eta_sec=17
+2026-04-06 01:04:47,328 - INFO - [Eval @ Epoch 25/40] test_loss=0.508368, test_acc=0.8334, FAR=0.0080, FDR=0.9998
+2026-04-06 01:04:47,328 - INFO - [Epoch 25/40] train_cls=0.430180, train_transfer=0.224122, train_adv=0.000000, train_total=0.654302, lr=0.0003156, eta_sec=13
+2026-04-06 01:04:51,319 - INFO - [Eval @ Epoch 30/40] test_loss=0.420510, test_acc=0.8654, FAR=0.0080, FDR=0.9996
+2026-04-06 01:04:51,319 - INFO - [Epoch 30/40] train_cls=0.465950, train_transfer=0.219333, train_adv=0.000000, train_total=0.685283, lr=0.0001550, eta_sec=8
+2026-04-06 01:04:55,248 - INFO - [Eval @ Epoch 35/40] test_loss=0.681476, test_acc=0.8196, FAR=0.0080, FDR=0.9998
+2026-04-06 01:04:55,248 - INFO - [Epoch 35/40] train_cls=0.471966, train_transfer=0.205818, train_adv=0.000000, train_total=0.677784, lr=0.0000477, eta_sec=4
+2026-04-06 01:04:59,127 - INFO - [Eval @ Epoch 40/40] test_loss=0.486387, test_acc=0.8681, FAR=0.0080, FDR=0.9996
+2026-04-06 01:04:59,127 - INFO - [Epoch 40/40] train_cls=0.393449, train_transfer=0.200830, train_adv=0.000000, train_total=0.594279, lr=0.0000100, eta_sec=0
+2026-04-06 01:04:59,132 - INFO - Training done for method=entropy_min
+2026-04-06 01:04:59,132 - INFO - Artifacts: baseline/private_runs/entropy_min

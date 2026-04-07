@@ -58,7 +58,7 @@ def parse_args():
     # Experiment settings
     parser.add_argument('--device', type=str, default='cuda' if torch.cuda.is_available() else 'cpu', help='Computation device')
     parser.add_argument('--gpu-id', type=int, default=2, help='GPU id to use when device is cuda, e.g. 0')
-    parser.add_argument('--output-dir', type=str, default='results', help='Output directory')
+    parser.add_argument('--output-dir', type=str, default='result/results', help='Output directory')
     parser.add_argument('--save-prefix', type=str, default='model', help='Model save prefix')
     parser.add_argument('--log-level', type=str, default='INFO', choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'],
                         help='Logging level for console/file output')

@@ -1,0 +1,12 @@
+{
+  "loss_types": [
+    "loss_main",
+    "loss_label_inv",
+    "loss_entropy",
+    "loss_total",
+    "test_loss",
+    "test_acc"
+  ],
+  "accuracy_types": [],
+  "iterations": 300
+}

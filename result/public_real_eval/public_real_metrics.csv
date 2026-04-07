@@ -1,0 +1,6 @@
+model,checkpoint,attention_mode,accuracy,fdr,far,tp,fn,fp,tn
+GRL+TEC(no-attn),result/results_compare/grl_tec_noattn/grl_tec_noattn_best.pth,none,0.97,1.0,0.004761904761904762,1890,0,1,209
+Attn1-rewrite,result/results_attn1_rewrite/model_attn1_rewrite_best.pth,attn1,0.9661904761904762,1.0,0.004761904761904762,1890,0,1,209
+Attn2-rewrite-v3,result/results_attn2_rewrite_v3/model_attn2_rewrite_v3_best.pth,attn2,0.9633333333333334,1.0,0.004761904761904762,1890,0,1,209
+ISGFAN-original,result/results_compare/isgfan_original/isgfan_original_best.pth,none,0.9628571428571429,1.0,0.004761904761904762,1890,0,1,209
+Legacy-best(attn2_mha),result/results/model_best.pth,attn2_mha,0.91,1.0,0.06190476190476191,1890,0,13,197

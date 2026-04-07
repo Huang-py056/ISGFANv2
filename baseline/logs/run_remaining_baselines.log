@@ -1,0 +1,251 @@
+nohup: ignoring input
+Using GPU 0, epochs=120, batch_size=16
+==============================================================
+[START] mmd
+2026-04-06 00:33:58,322 - INFO - method=mmd, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 00:33:58,322 - INFO - epochs=120, batch_size=16, lr=0.001, min_lr=1e-05
+2026-04-06 00:34:03,854 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 00:34:03,854 - INFO - source_train=40, target_train=25975, target_test=6495
+2026-04-06 00:34:03,854 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 00:34:07,652 - INFO - [Eval @ Epoch 1/120] test_loss=2.073952, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:07,654 - INFO - [Epoch 1/120] train_cls=1.994554, train_transfer=1.480807, train_adv=0.000000, train_total=3.475362, lr=0.0009998, eta_sec=325
+2026-04-06 00:34:08,538 - INFO - [Eval @ Epoch 5/120] test_loss=2.187934, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:08,538 - INFO - [Epoch 5/120] train_cls=1.949314, train_transfer=0.833163, train_adv=0.000000, train_total=2.782477, lr=0.0009958, eta_sec=83
+2026-04-06 00:34:09,572 - INFO - [Eval @ Epoch 10/120] test_loss=2.218576, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:09,572 - INFO - [Epoch 10/120] train_cls=1.914466, train_transfer=0.813462, train_adv=0.000000, train_total=2.727928, lr=0.0009831, eta_sec=51
+2026-04-06 00:34:10,571 - INFO - [Eval @ Epoch 15/120] test_loss=2.175926, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:10,571 - INFO - [Epoch 15/120] train_cls=1.971947, train_transfer=0.738562, train_adv=0.000000, train_total=2.710509, lr=0.0009623, eta_sec=39
+2026-04-06 00:34:11,586 - INFO - [Eval @ Epoch 20/120] test_loss=2.143977, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:11,586 - INFO - [Epoch 20/120] train_cls=1.925874, train_transfer=0.939591, train_adv=0.000000, train_total=2.865465, lr=0.0009337, eta_sec=33
+2026-04-06 00:34:12,605 - INFO - [Eval @ Epoch 25/120] test_loss=2.150768, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:12,605 - INFO - [Epoch 25/120] train_cls=1.946492, train_transfer=0.669581, train_adv=0.000000, train_total=2.616073, lr=0.0008977, eta_sec=29
+2026-04-06 00:34:13,590 - INFO - [Eval @ Epoch 30/120] test_loss=2.171205, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:13,590 - INFO - [Epoch 30/120] train_cls=1.933891, train_transfer=0.547500, train_adv=0.000000, train_total=2.481391, lr=0.0008550, eta_sec=26
+2026-04-06 00:34:14,623 - INFO - [Eval @ Epoch 35/120] test_loss=2.139105, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:14,623 - INFO - [Epoch 35/120] train_cls=1.927921, train_transfer=0.787931, train_adv=0.000000, train_total=2.715852, lr=0.0008063, eta_sec=23
+2026-04-06 00:34:15,624 - INFO - [Eval @ Epoch 40/120] test_loss=2.171199, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:15,625 - INFO - [Epoch 40/120] train_cls=1.925914, train_transfer=0.364713, train_adv=0.000000, train_total=2.290626, lr=0.0007525, eta_sec=21
+2026-04-06 00:34:16,643 - INFO - [Eval @ Epoch 45/120] test_loss=2.161118, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:16,643 - INFO - [Epoch 45/120] train_cls=1.937840, train_transfer=0.473907, train_adv=0.000000, train_total=2.411747, lr=0.0006944, eta_sec=19
+2026-04-06 00:34:17,650 - INFO - [Eval @ Epoch 50/120] test_loss=2.119147, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:17,650 - INFO - [Epoch 50/120] train_cls=1.921730, train_transfer=0.561635, train_adv=0.000000, train_total=2.483365, lr=0.0006331, eta_sec=17
+2026-04-06 00:34:18,682 - INFO - [Eval @ Epoch 55/120] test_loss=2.159109, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:18,682 - INFO - [Epoch 55/120] train_cls=1.934724, train_transfer=0.587526, train_adv=0.000000, train_total=2.522250, lr=0.0005696, eta_sec=16
+2026-04-06 00:34:19,656 - INFO - [Eval @ Epoch 60/120] test_loss=2.159260, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:19,656 - INFO - [Epoch 60/120] train_cls=1.947575, train_transfer=0.511613, train_adv=0.000000, train_total=2.459188, lr=0.0005050, eta_sec=14
+2026-04-06 00:34:20,661 - INFO - [Eval @ Epoch 65/120] test_loss=2.168827, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:20,661 - INFO - [Epoch 65/120] train_cls=1.903465, train_transfer=0.445110, train_adv=0.000000, train_total=2.348575, lr=0.0004404, eta_sec=13
+2026-04-06 00:34:21,724 - INFO - [Eval @ Epoch 70/120] test_loss=2.166905, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:21,724 - INFO - [Epoch 70/120] train_cls=1.925331, train_transfer=0.609501, train_adv=0.000000, train_total=2.534832, lr=0.0003769, eta_sec=12
+2026-04-06 00:34:22,720 - INFO - [Eval @ Epoch 75/120] test_loss=2.161078, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:22,721 - INFO - [Epoch 75/120] train_cls=1.956851, train_transfer=0.496634, train_adv=0.000000, train_total=2.453485, lr=0.0003156, eta_sec=10
+2026-04-06 00:34:23,722 - INFO - [Eval @ Epoch 80/120] test_loss=2.156682, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:23,722 - INFO - [Epoch 80/120] train_cls=1.942678, train_transfer=0.466891, train_adv=0.000000, train_total=2.409569, lr=0.0002575, eta_sec=9
+2026-04-06 00:34:24,759 - INFO - [Eval @ Epoch 85/120] test_loss=2.175580, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:24,759 - INFO - [Epoch 85/120] train_cls=1.917673, train_transfer=0.388295, train_adv=0.000000, train_total=2.305968, lr=0.0002037, eta_sec=8
+2026-04-06 00:34:25,771 - INFO - [Eval @ Epoch 90/120] test_loss=2.164547, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:25,771 - INFO - [Epoch 90/120] train_cls=1.900256, train_transfer=0.397158, train_adv=0.000000, train_total=2.297413, lr=0.0001550, eta_sec=6
+2026-04-06 00:34:26,797 - INFO - [Eval @ Epoch 95/120] test_loss=2.157122, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:26,797 - INFO - [Epoch 95/120] train_cls=1.923973, train_transfer=0.200428, train_adv=0.000000, train_total=2.124401, lr=0.0001123, eta_sec=5
+2026-04-06 00:34:27,819 - INFO - [Eval @ Epoch 100/120] test_loss=2.165182, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:27,819 - INFO - [Epoch 100/120] train_cls=1.934671, train_transfer=0.286705, train_adv=0.000000, train_total=2.221376, lr=0.0000763, eta_sec=4
+2026-04-06 00:34:28,889 - INFO - [Eval @ Epoch 105/120] test_loss=2.160932, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:28,889 - INFO - [Epoch 105/120] train_cls=1.913187, train_transfer=0.528322, train_adv=0.000000, train_total=2.441509, lr=0.0000477, eta_sec=3
+2026-04-06 00:34:29,907 - INFO - [Eval @ Epoch 110/120] test_loss=2.160269, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:29,907 - INFO - [Epoch 110/120] train_cls=1.921172, train_transfer=0.325390, train_adv=0.000000, train_total=2.246562, lr=0.0000269, eta_sec=2
+2026-04-06 00:34:30,971 - INFO - [Eval @ Epoch 115/120] test_loss=2.162973, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:30,971 - INFO - [Epoch 115/120] train_cls=1.897259, train_transfer=0.365934, train_adv=0.000000, train_total=2.263193, lr=0.0000142, eta_sec=1
+2026-04-06 00:34:32,042 - INFO - [Eval @ Epoch 120/120] test_loss=2.161941, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:32,043 - INFO - [Epoch 120/120] train_cls=1.964248, train_transfer=0.406744, train_adv=0.000000, train_total=2.370992, lr=0.0000100, eta_sec=0
+2026-04-06 00:34:32,048 - INFO - Training done for method=mmd
+2026-04-06 00:34:32,048 - INFO - Artifacts: baseline/private_runs/mmd
+[DONE]  mmd -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/mmd.log
+==============================================================
+
+==============================================================
+[START] jan
+2026-04-06 00:34:34,773 - INFO - method=jan, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 00:34:34,773 - INFO - epochs=120, batch_size=16, lr=0.001, min_lr=1e-05
+2026-04-06 00:34:40,156 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 00:34:40,156 - INFO - source_train=40, target_train=25975, target_test=6495
+2026-04-06 00:34:40,156 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 00:34:44,192 - INFO - [Eval @ Epoch 1/120] test_loss=2.073883, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:44,193 - INFO - [Epoch 1/120] train_cls=1.994648, train_transfer=1.481533, train_adv=0.000000, train_total=3.476180, lr=0.0009998, eta_sec=349
+2026-04-06 00:34:45,139 - INFO - [Eval @ Epoch 5/120] test_loss=2.188285, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:45,139 - INFO - [Epoch 5/120] train_cls=1.949301, train_transfer=0.814800, train_adv=0.000000, train_total=2.764101, lr=0.0009958, eta_sec=89
+2026-04-06 00:34:46,116 - INFO - [Eval @ Epoch 10/120] test_loss=2.215234, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:46,116 - INFO - [Epoch 10/120] train_cls=1.909359, train_transfer=0.833847, train_adv=0.000000, train_total=2.743206, lr=0.0009831, eta_sec=53
+2026-04-06 00:34:47,135 - INFO - [Eval @ Epoch 15/120] test_loss=2.172685, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:47,136 - INFO - [Epoch 15/120] train_cls=1.971642, train_transfer=0.844296, train_adv=0.000000, train_total=2.815937, lr=0.0009623, eta_sec=41
+2026-04-06 00:34:48,140 - INFO - [Eval @ Epoch 20/120] test_loss=2.148683, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:48,140 - INFO - [Epoch 20/120] train_cls=1.932301, train_transfer=1.108311, train_adv=0.000000, train_total=3.040612, lr=0.0009337, eta_sec=34
+2026-04-06 00:34:49,104 - INFO - [Eval @ Epoch 25/120] test_loss=2.118514, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:49,104 - INFO - [Epoch 25/120] train_cls=1.953214, train_transfer=0.678440, train_adv=0.000000, train_total=2.631654, lr=0.0008977, eta_sec=29
+2026-04-06 00:34:50,151 - INFO - [Eval @ Epoch 30/120] test_loss=2.166482, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:50,151 - INFO - [Epoch 30/120] train_cls=1.935606, train_transfer=0.605123, train_adv=0.000000, train_total=2.540729, lr=0.0008550, eta_sec=26
+2026-04-06 00:34:51,302 - INFO - [Eval @ Epoch 35/120] test_loss=2.169577, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:51,303 - INFO - [Epoch 35/120] train_cls=1.922972, train_transfer=0.884725, train_adv=0.000000, train_total=2.807696, lr=0.0008063, eta_sec=24
+2026-04-06 00:34:52,265 - INFO - [Eval @ Epoch 40/120] test_loss=2.153152, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:52,266 - INFO - [Epoch 40/120] train_cls=1.920270, train_transfer=0.405509, train_adv=0.000000, train_total=2.325779, lr=0.0007525, eta_sec=22
+2026-04-06 00:34:53,217 - INFO - [Eval @ Epoch 45/120] test_loss=2.166282, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:53,217 - INFO - [Epoch 45/120] train_cls=1.935876, train_transfer=0.526544, train_adv=0.000000, train_total=2.462420, lr=0.0006944, eta_sec=19
+2026-04-06 00:34:54,216 - INFO - [Eval @ Epoch 50/120] test_loss=2.157780, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:54,216 - INFO - [Epoch 50/120] train_cls=1.919491, train_transfer=0.568136, train_adv=0.000000, train_total=2.487627, lr=0.0006331, eta_sec=18
+2026-04-06 00:34:55,308 - INFO - [Eval @ Epoch 55/120] test_loss=2.164846, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:55,308 - INFO - [Epoch 55/120] train_cls=1.933721, train_transfer=0.494664, train_adv=0.000000, train_total=2.428385, lr=0.0005696, eta_sec=16
+2026-04-06 00:34:56,302 - INFO - [Eval @ Epoch 60/120] test_loss=2.185724, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:56,302 - INFO - [Epoch 60/120] train_cls=1.946539, train_transfer=0.553161, train_adv=0.000000, train_total=2.499700, lr=0.0005050, eta_sec=15
+2026-04-06 00:34:57,270 - INFO - [Eval @ Epoch 65/120] test_loss=2.167377, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:57,270 - INFO - [Epoch 65/120] train_cls=1.898201, train_transfer=0.436674, train_adv=0.000000, train_total=2.334874, lr=0.0004404, eta_sec=13
+2026-04-06 00:34:58,250 - INFO - [Eval @ Epoch 70/120] test_loss=2.148842, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:58,251 - INFO - [Epoch 70/120] train_cls=1.923322, train_transfer=0.501451, train_adv=0.000000, train_total=2.424773, lr=0.0003769, eta_sec=12
+2026-04-06 00:34:59,268 - INFO - [Eval @ Epoch 75/120] test_loss=2.145471, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:34:59,268 - INFO - [Epoch 75/120] train_cls=1.957245, train_transfer=0.529932, train_adv=0.000000, train_total=2.487177, lr=0.0003156, eta_sec=10
+2026-04-06 00:35:00,287 - INFO - [Eval @ Epoch 80/120] test_loss=2.145289, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:00,287 - INFO - [Epoch 80/120] train_cls=1.943678, train_transfer=0.525691, train_adv=0.000000, train_total=2.469369, lr=0.0002575, eta_sec=9
+2026-04-06 00:35:01,322 - INFO - [Eval @ Epoch 85/120] test_loss=2.156536, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:01,323 - INFO - [Epoch 85/120] train_cls=1.917740, train_transfer=0.354588, train_adv=0.000000, train_total=2.272328, lr=0.0002037, eta_sec=8
+2026-04-06 00:35:02,335 - INFO - [Eval @ Epoch 90/120] test_loss=2.156290, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:02,335 - INFO - [Epoch 90/120] train_cls=1.901302, train_transfer=0.423456, train_adv=0.000000, train_total=2.324758, lr=0.0001550, eta_sec=7
+2026-04-06 00:35:03,323 - INFO - [Eval @ Epoch 95/120] test_loss=2.147588, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:03,324 - INFO - [Epoch 95/120] train_cls=1.923984, train_transfer=0.266924, train_adv=0.000000, train_total=2.190907, lr=0.0001123, eta_sec=5
+2026-04-06 00:35:04,335 - INFO - [Eval @ Epoch 100/120] test_loss=2.153949, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:04,335 - INFO - [Epoch 100/120] train_cls=1.936343, train_transfer=0.288803, train_adv=0.000000, train_total=2.225145, lr=0.0000763, eta_sec=4
+2026-04-06 00:35:05,367 - INFO - [Eval @ Epoch 105/120] test_loss=2.149582, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:05,367 - INFO - [Epoch 105/120] train_cls=1.914069, train_transfer=0.504491, train_adv=0.000000, train_total=2.418560, lr=0.0000477, eta_sec=3
+2026-04-06 00:35:06,420 - INFO - [Eval @ Epoch 110/120] test_loss=2.149487, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:06,421 - INFO - [Epoch 110/120] train_cls=1.921677, train_transfer=0.327902, train_adv=0.000000, train_total=2.249579, lr=0.0000269, eta_sec=2
+2026-04-06 00:35:07,465 - INFO - [Eval @ Epoch 115/120] test_loss=2.152272, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:07,466 - INFO - [Epoch 115/120] train_cls=1.897700, train_transfer=0.370750, train_adv=0.000000, train_total=2.268450, lr=0.0000142, eta_sec=1
+2026-04-06 00:35:08,494 - INFO - [Eval @ Epoch 120/120] test_loss=2.153131, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:08,495 - INFO - [Epoch 120/120] train_cls=1.963533, train_transfer=0.458898, train_adv=0.000000, train_total=2.422431, lr=0.0000100, eta_sec=0
+2026-04-06 00:35:08,500 - INFO - Training done for method=jan
+2026-04-06 00:35:08,500 - INFO - Artifacts: baseline/private_runs/jan
+[DONE]  jan -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/jan.log
+==============================================================
+
+==============================================================
+[START] entropy_min
+2026-04-06 00:35:11,406 - INFO - method=entropy_min, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 00:35:11,406 - INFO - epochs=120, batch_size=16, lr=0.001, min_lr=1e-05
+2026-04-06 00:35:17,031 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 00:35:17,031 - INFO - source_train=40, target_train=25975, target_test=6495
+2026-04-06 00:35:17,031 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 00:35:20,658 - INFO - [Eval @ Epoch 1/120] test_loss=2.066592, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:20,660 - INFO - [Epoch 1/120] train_cls=1.960811, train_transfer=2.043490, train_adv=0.000000, train_total=4.004300, lr=0.0009998, eta_sec=298
+2026-04-06 00:35:21,470 - INFO - [Eval @ Epoch 5/120] test_loss=2.813675, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:21,470 - INFO - [Epoch 5/120] train_cls=2.111363, train_transfer=0.907888, train_adv=0.000000, train_total=3.019252, lr=0.0009958, eta_sec=76
+2026-04-06 00:35:22,326 - INFO - [Eval @ Epoch 10/120] test_loss=2.987428, test_acc=0.0006, FAR=0.0000, FDR=0.0000
+2026-04-06 00:35:22,326 - INFO - [Epoch 10/120] train_cls=1.759151, train_transfer=0.545421, train_adv=0.000000, train_total=2.304572, lr=0.0009831, eta_sec=45
+2026-04-06 00:35:23,177 - INFO - [Eval @ Epoch 15/120] test_loss=3.510182, test_acc=0.0029, FAR=0.0062, FDR=0.0070
+2026-04-06 00:35:23,178 - INFO - [Epoch 15/120] train_cls=1.653109, train_transfer=0.304935, train_adv=0.000000, train_total=1.958044, lr=0.0009623, eta_sec=35
+2026-04-06 00:35:24,065 - INFO - [Eval @ Epoch 20/120] test_loss=4.328607, test_acc=0.0029, FAR=0.0068, FDR=0.0072
+2026-04-06 00:35:24,065 - INFO - [Epoch 20/120] train_cls=1.784556, train_transfer=0.194012, train_adv=0.000000, train_total=1.978568, lr=0.0009337, eta_sec=29
+2026-04-06 00:35:24,996 - INFO - [Eval @ Epoch 25/120] test_loss=4.535740, test_acc=0.0026, FAR=0.0062, FDR=0.0070
+2026-04-06 00:35:24,996 - INFO - [Epoch 25/120] train_cls=1.200473, train_transfer=0.374221, train_adv=0.000000, train_total=1.574694, lr=0.0008977, eta_sec=26
+2026-04-06 00:35:25,883 - INFO - [Eval @ Epoch 30/120] test_loss=3.888651, test_acc=0.0029, FAR=0.9531, FDR=0.9969
+2026-04-06 00:35:25,883 - INFO - [Epoch 30/120] train_cls=1.144738, train_transfer=0.082849, train_adv=0.000000, train_total=1.227587, lr=0.0008550, eta_sec=23
+2026-04-06 00:35:26,745 - INFO - [Eval @ Epoch 35/120] test_loss=3.667987, test_acc=0.0025, FAR=0.0049, FDR=0.0066
+2026-04-06 00:35:26,746 - INFO - [Epoch 35/120] train_cls=1.347088, train_transfer=0.032730, train_adv=0.000000, train_total=1.379818, lr=0.0008063, eta_sec=20
+2026-04-06 00:35:27,606 - INFO - [Eval @ Epoch 40/120] test_loss=4.022821, test_acc=0.0031, FAR=0.7668, FDR=0.9990
+2026-04-06 00:35:27,607 - INFO - [Epoch 40/120] train_cls=0.949046, train_transfer=0.092979, train_adv=0.000000, train_total=1.042025, lr=0.0007525, eta_sec=18
+2026-04-06 00:35:28,442 - INFO - [Eval @ Epoch 45/120] test_loss=4.855196, test_acc=0.0028, FAR=0.7933, FDR=0.9979
+2026-04-06 00:35:28,442 - INFO - [Epoch 45/120] train_cls=0.890347, train_transfer=0.036490, train_adv=0.000000, train_total=0.926837, lr=0.0006944, eta_sec=17
+2026-04-06 00:35:29,311 - INFO - [Eval @ Epoch 50/120] test_loss=4.486241, test_acc=0.0011, FAR=0.7724, FDR=0.9941
+2026-04-06 00:35:29,311 - INFO - [Epoch 50/120] train_cls=1.334205, train_transfer=0.023663, train_adv=0.000000, train_total=1.357868, lr=0.0006331, eta_sec=15
+2026-04-06 00:35:30,194 - INFO - [Eval @ Epoch 55/120] test_loss=4.791123, test_acc=0.0012, FAR=0.7539, FDR=0.9961
+2026-04-06 00:35:30,194 - INFO - [Epoch 55/120] train_cls=0.793131, train_transfer=0.034484, train_adv=0.000000, train_total=0.827616, lr=0.0005696, eta_sec=14
+2026-04-06 00:35:31,110 - INFO - [Eval @ Epoch 60/120] test_loss=4.592989, test_acc=0.0028, FAR=0.7477, FDR=0.9979
+2026-04-06 00:35:31,110 - INFO - [Epoch 60/120] train_cls=0.726789, train_transfer=0.039631, train_adv=0.000000, train_total=0.766419, lr=0.0005050, eta_sec=12
+2026-04-06 00:35:32,018 - INFO - [Eval @ Epoch 65/120] test_loss=5.995895, test_acc=0.0008, FAR=0.9494, FDR=0.9988
+2026-04-06 00:35:32,018 - INFO - [Epoch 65/120] train_cls=0.774311, train_transfer=0.010161, train_adv=0.000000, train_total=0.784472, lr=0.0004404, eta_sec=11
+2026-04-06 00:35:33,020 - INFO - [Eval @ Epoch 70/120] test_loss=5.138094, test_acc=0.0006, FAR=0.7613, FDR=0.9953
+2026-04-06 00:35:33,020 - INFO - [Epoch 70/120] train_cls=0.630362, train_transfer=0.007758, train_adv=0.000000, train_total=0.638120, lr=0.0003769, eta_sec=10
+2026-04-06 00:35:33,966 - INFO - [Eval @ Epoch 75/120] test_loss=5.840473, test_acc=0.0008, FAR=0.9581, FDR=0.9969
+2026-04-06 00:35:33,966 - INFO - [Epoch 75/120] train_cls=0.611081, train_transfer=0.006482, train_adv=0.000000, train_total=0.617563, lr=0.0003156, eta_sec=9
+2026-04-06 00:35:34,864 - INFO - [Eval @ Epoch 80/120] test_loss=6.121697, test_acc=0.0011, FAR=0.9932, FDR=0.9971
+2026-04-06 00:35:34,864 - INFO - [Epoch 80/120] train_cls=0.642411, train_transfer=0.007766, train_adv=0.000000, train_total=0.650178, lr=0.0002575, eta_sec=8
+2026-04-06 00:35:35,822 - INFO - [Eval @ Epoch 85/120] test_loss=6.266885, test_acc=0.0006, FAR=0.9420, FDR=0.9951
+2026-04-06 00:35:35,822 - INFO - [Epoch 85/120] train_cls=0.578339, train_transfer=0.008070, train_adv=0.000000, train_total=0.586409, lr=0.0002037, eta_sec=7
+2026-04-06 00:35:36,712 - INFO - [Eval @ Epoch 90/120] test_loss=5.931688, test_acc=0.0015, FAR=0.9803, FDR=0.9957
+2026-04-06 00:35:36,713 - INFO - [Epoch 90/120] train_cls=0.556910, train_transfer=0.007584, train_adv=0.000000, train_total=0.564494, lr=0.0001550, eta_sec=6
+2026-04-06 00:35:37,634 - INFO - [Eval @ Epoch 95/120] test_loss=5.422014, test_acc=0.0009, FAR=0.8341, FDR=0.9971
+2026-04-06 00:35:37,634 - INFO - [Epoch 95/120] train_cls=0.427437, train_transfer=0.036930, train_adv=0.000000, train_total=0.464367, lr=0.0001123, eta_sec=5
+2026-04-06 00:35:38,569 - INFO - [Eval @ Epoch 100/120] test_loss=5.810518, test_acc=0.0009, FAR=0.9877, FDR=0.9926
+2026-04-06 00:35:38,570 - INFO - [Epoch 100/120] train_cls=0.552327, train_transfer=0.007062, train_adv=0.000000, train_total=0.559389, lr=0.0000763, eta_sec=4
+2026-04-06 00:35:39,565 - INFO - [Eval @ Epoch 105/120] test_loss=5.400747, test_acc=0.0006, FAR=0.9365, FDR=0.9957
+2026-04-06 00:35:39,566 - INFO - [Epoch 105/120] train_cls=0.607549, train_transfer=0.019673, train_adv=0.000000, train_total=0.627221, lr=0.0000477, eta_sec=3
+2026-04-06 00:35:40,525 - INFO - [Eval @ Epoch 110/120] test_loss=6.258200, test_acc=0.0006, FAR=0.9951, FDR=0.9957
+2026-04-06 00:35:40,526 - INFO - [Epoch 110/120] train_cls=0.481114, train_transfer=0.006202, train_adv=0.000000, train_total=0.487316, lr=0.0000269, eta_sec=2
+2026-04-06 00:35:41,515 - INFO - [Eval @ Epoch 115/120] test_loss=6.070061, test_acc=0.0006, FAR=0.9944, FDR=0.9961
+2026-04-06 00:35:41,515 - INFO - [Epoch 115/120] train_cls=0.525781, train_transfer=0.006498, train_adv=0.000000, train_total=0.532279, lr=0.0000142, eta_sec=1
+2026-04-06 00:35:42,486 - INFO - [Eval @ Epoch 120/120] test_loss=5.929729, test_acc=0.0006, FAR=0.9932, FDR=0.9963
+2026-04-06 00:35:42,487 - INFO - [Epoch 120/120] train_cls=0.736209, train_transfer=0.012877, train_adv=0.000000, train_total=0.749086, lr=0.0000100, eta_sec=0
+2026-04-06 00:35:42,496 - INFO - Training done for method=entropy_min
+2026-04-06 00:35:42,496 - INFO - Artifacts: baseline/private_runs/entropy_min
+[DONE]  entropy_min -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/entropy_min.log
+==============================================================
+
+==============================================================
+[START] mcc
+2026-04-06 00:35:45,646 - INFO - method=mcc, device=cuda:0, data_dir=self_data/75_Sta_60_test_dso
+2026-04-06 00:35:45,646 - INFO - epochs=120, batch_size=16, lr=0.001, min_lr=1e-05
+2026-04-06 00:35:51,249 - INFO - class_names=['L0', 'L120', 'L1800', 'L320', 'L330', 'L75', 'L800', 'NO_L']
+2026-04-06 00:35:51,249 - INFO - source_train=40, target_train=25975, target_test=6495
+2026-04-06 00:35:51,250 - INFO - normal_class_indices=[0, 7], normal_class_names=['L0', 'NO_L']
+2026-04-06 00:35:55,114 - INFO - [Eval @ Epoch 1/120] test_loss=2.070042, test_acc=0.0005, FAR=0.0006, FDR=0.0008
+2026-04-06 00:35:55,115 - INFO - [Epoch 1/120] train_cls=1.973090, train_transfer=0.872849, train_adv=0.000000, train_total=2.845939, lr=0.0009998, eta_sec=328
+2026-04-06 00:35:56,029 - INFO - [Eval @ Epoch 5/120] test_loss=2.471683, test_acc=0.0000, FAR=0.0019, FDR=0.0029
+2026-04-06 00:35:56,029 - INFO - [Epoch 5/120] train_cls=1.598374, train_transfer=0.874618, train_adv=0.000000, train_total=2.472991, lr=0.0009958, eta_sec=84
+2026-04-06 00:35:57,013 - INFO - [Eval @ Epoch 10/120] test_loss=3.072798, test_acc=0.0006, FAR=0.7761, FDR=0.9947
+2026-04-06 00:35:57,014 - INFO - [Epoch 10/120] train_cls=1.356449, train_transfer=0.874204, train_adv=0.000000, train_total=2.230653, lr=0.0009831, eta_sec=51
+2026-04-06 00:35:57,891 - INFO - [Eval @ Epoch 15/120] test_loss=3.472316, test_acc=0.0000, FAR=0.7489, FDR=0.9990
+2026-04-06 00:35:57,891 - INFO - [Epoch 15/120] train_cls=1.342103, train_transfer=0.874602, train_adv=0.000000, train_total=2.216705, lr=0.0009623, eta_sec=38
+2026-04-06 00:35:58,741 - INFO - [Eval @ Epoch 20/120] test_loss=4.141374, test_acc=0.0000, FAR=0.7545, FDR=0.9992
+2026-04-06 00:35:58,741 - INFO - [Epoch 20/120] train_cls=1.154893, train_transfer=0.873676, train_adv=0.000000, train_total=2.028570, lr=0.0009337, eta_sec=31
+2026-04-06 00:35:59,618 - INFO - [Eval @ Epoch 25/120] test_loss=5.719924, test_acc=0.0000, FAR=0.7736, FDR=0.9992
+2026-04-06 00:35:59,618 - INFO - [Epoch 25/120] train_cls=1.041699, train_transfer=0.836336, train_adv=0.000000, train_total=1.878035, lr=0.0008977, eta_sec=27
+2026-04-06 00:36:00,485 - INFO - [Eval @ Epoch 30/120] test_loss=6.019992, test_acc=0.0000, FAR=0.9938, FDR=0.9979
+2026-04-06 00:36:00,485 - INFO - [Epoch 30/120] train_cls=0.965378, train_transfer=0.870466, train_adv=0.000000, train_total=1.835844, lr=0.0008550, eta_sec=24
+2026-04-06 00:36:01,464 - INFO - [Eval @ Epoch 35/120] test_loss=4.666206, test_acc=0.0000, FAR=0.7539, FDR=0.9992
+2026-04-06 00:36:01,464 - INFO - [Epoch 35/120] train_cls=0.876719, train_transfer=0.874676, train_adv=0.000000, train_total=1.751395, lr=0.0008063, eta_sec=22
+2026-04-06 00:36:02,416 - INFO - [Eval @ Epoch 40/120] test_loss=7.533336, test_acc=0.0000, FAR=0.9963, FDR=0.9988
+2026-04-06 00:36:02,416 - INFO - [Epoch 40/120] train_cls=0.683464, train_transfer=0.827928, train_adv=0.000000, train_total=1.511392, lr=0.0007525, eta_sec=20
+2026-04-06 00:36:03,382 - INFO - [Eval @ Epoch 45/120] test_loss=7.763948, test_acc=0.0002, FAR=0.9944, FDR=0.9992
+2026-04-06 00:36:03,382 - INFO - [Epoch 45/120] train_cls=0.550379, train_transfer=0.840897, train_adv=0.000000, train_total=1.391276, lr=0.0006944, eta_sec=18
+2026-04-06 00:36:04,308 - INFO - [Eval @ Epoch 50/120] test_loss=6.480156, test_acc=0.0002, FAR=0.9969, FDR=0.9992
+2026-04-06 00:36:04,308 - INFO - [Epoch 50/120] train_cls=0.665076, train_transfer=0.787825, train_adv=0.000000, train_total=1.452901, lr=0.0006331, eta_sec=16
+2026-04-06 00:36:05,183 - INFO - [Eval @ Epoch 55/120] test_loss=8.525638, test_acc=0.0002, FAR=0.9543, FDR=0.9982
+2026-04-06 00:36:05,183 - INFO - [Epoch 55/120] train_cls=0.446946, train_transfer=0.793634, train_adv=0.000000, train_total=1.240580, lr=0.0005696, eta_sec=15
+2026-04-06 00:36:06,132 - INFO - [Eval @ Epoch 60/120] test_loss=7.024902, test_acc=0.0002, FAR=0.9167, FDR=0.9988
+2026-04-06 00:36:06,132 - INFO - [Epoch 60/120] train_cls=0.383867, train_transfer=0.745375, train_adv=0.000000, train_total=1.129242, lr=0.0005050, eta_sec=13
+2026-04-06 00:36:07,084 - INFO - [Eval @ Epoch 65/120] test_loss=10.508109, test_acc=0.0002, FAR=0.9988, FDR=0.9994
+2026-04-06 00:36:07,084 - INFO - [Epoch 65/120] train_cls=0.359126, train_transfer=0.767222, train_adv=0.000000, train_total=1.126349, lr=0.0004404, eta_sec=12
+2026-04-06 00:36:08,053 - INFO - [Eval @ Epoch 70/120] test_loss=9.829492, test_acc=0.0002, FAR=0.9988, FDR=0.9994
+2026-04-06 00:36:08,053 - INFO - [Epoch 70/120] train_cls=0.267778, train_transfer=0.774826, train_adv=0.000000, train_total=1.042603, lr=0.0003769, eta_sec=11
+2026-04-06 00:36:09,053 - INFO - [Eval @ Epoch 75/120] test_loss=11.263675, test_acc=0.0002, FAR=0.9981, FDR=0.9986
+2026-04-06 00:36:09,053 - INFO - [Epoch 75/120] train_cls=0.283786, train_transfer=0.774894, train_adv=0.000000, train_total=1.058680, lr=0.0003156, eta_sec=10
+2026-04-06 00:36:09,984 - INFO - [Eval @ Epoch 80/120] test_loss=11.853376, test_acc=0.0002, FAR=0.9981, FDR=0.9984
+2026-04-06 00:36:09,984 - INFO - [Epoch 80/120] train_cls=0.303323, train_transfer=0.756471, train_adv=0.000000, train_total=1.059795, lr=0.0002575, eta_sec=8
+2026-04-06 00:36:10,879 - INFO - [Eval @ Epoch 85/120] test_loss=11.787314, test_acc=0.0002, FAR=0.9981, FDR=0.9984
+2026-04-06 00:36:10,879 - INFO - [Epoch 85/120] train_cls=0.224003, train_transfer=0.766400, train_adv=0.000000, train_total=0.990404, lr=0.0002037, eta_sec=7
+2026-04-06 00:36:11,844 - INFO - [Eval @ Epoch 90/120] test_loss=11.792444, test_acc=0.0003, FAR=0.9969, FDR=0.9984
+2026-04-06 00:36:11,844 - INFO - [Epoch 90/120] train_cls=0.247617, train_transfer=0.758860, train_adv=0.000000, train_total=1.006477, lr=0.0001550, eta_sec=6
+2026-04-06 00:36:12,827 - INFO - [Eval @ Epoch 95/120] test_loss=9.394889, test_acc=0.0002, FAR=0.9901, FDR=0.9984
+2026-04-06 00:36:12,827 - INFO - [Epoch 95/120] train_cls=0.146054, train_transfer=0.714452, train_adv=0.000000, train_total=0.860506, lr=0.0001123, eta_sec=5
+2026-04-06 00:36:13,752 - INFO - [Eval @ Epoch 100/120] test_loss=11.323699, test_acc=0.0003, FAR=0.9963, FDR=0.9979
+2026-04-06 00:36:13,752 - INFO - [Epoch 100/120] train_cls=0.241618, train_transfer=0.719014, train_adv=0.000000, train_total=0.960632, lr=0.0000763, eta_sec=4
+2026-04-06 00:36:14,711 - INFO - [Eval @ Epoch 105/120] test_loss=10.516488, test_acc=0.0002, FAR=0.9981, FDR=0.9984
+2026-04-06 00:36:14,711 - INFO - [Epoch 105/120] train_cls=0.263007, train_transfer=0.717876, train_adv=0.000000, train_total=0.980883, lr=0.0000477, eta_sec=3
+2026-04-06 00:36:15,608 - INFO - [Eval @ Epoch 110/120] test_loss=11.877205, test_acc=0.0003, FAR=0.9969, FDR=0.9984
+2026-04-06 00:36:15,609 - INFO - [Epoch 110/120] train_cls=0.159542, train_transfer=0.760234, train_adv=0.000000, train_total=0.919776, lr=0.0000269, eta_sec=2
+2026-04-06 00:36:16,547 - INFO - [Eval @ Epoch 115/120] test_loss=11.325112, test_acc=0.0003, FAR=0.9969, FDR=0.9982
+2026-04-06 00:36:16,547 - INFO - [Epoch 115/120] train_cls=0.200497, train_transfer=0.743003, train_adv=0.000000, train_total=0.943500, lr=0.0000142, eta_sec=1
+2026-04-06 00:36:17,504 - INFO - [Eval @ Epoch 120/120] test_loss=11.063327, test_acc=0.0003, FAR=0.9969, FDR=0.9984
+2026-04-06 00:36:17,505 - INFO - [Epoch 120/120] train_cls=0.335119, train_transfer=0.722999, train_adv=0.000000, train_total=1.058118, lr=0.0000100, eta_sec=0
+2026-04-06 00:36:17,510 - INFO - Training done for method=mcc
+2026-04-06 00:36:17,510 - INFO - Artifacts: baseline/private_runs/mcc
+[DONE]  mcc -> /data2/ranran/chenghaoyue/ISGFAN/baseline/logs/mcc.log
+==============================================================
+
+Remaining baselines finished.
